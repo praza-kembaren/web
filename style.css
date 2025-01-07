@@ -1,0 +1,210 @@
+body {
+    margin: 0;
+    font-family: 'Lucida Sans';
+}
+
+nav {
+    background: linear-gradient(135deg, #1E3E62, rgb(2, 2, 58));
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    color: white;
+    font-size: 24px;
+    font-weight: none;
+    text-decoration: none;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.menu ul li {
+    display: inline;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+    color: rgb(158, 158, 253);
+}
+
+section#home {
+    text-align: center;
+    padding: 40px 20px;
+    background: white;
+}
+
+section#home img {
+    max-width: 300px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.kolom p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+
+.deskripsi {
+    font-size: 28px; /* Ukuran lebih besar untuk quotes */
+    font-weight: bold;
+    color: #6a11cb;
+    margin-bottom: 10px;
+    text-align: center; /* Untuk sentralisasi teks */
+}
+
+.kolom h2 {
+    font-size: 18px; /* Ukuran lebih kecil untuk nama */
+    font-weight: normal;
+    color: #333;
+    margin-top: 0;
+    text-align: center; /* Untuk sentralisasi teks */
+}
+
+#astronomy .post-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.post-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.post-card a {
+    color: #1E3E62;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.post-card a:hover {
+    color: #415a77;
+}
+
+.post-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.post-image {
+    width: 100%;
+    height: 180px;
+    object-fit: contain; /* Agar gambar tetap proporsional */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column; /* Susun elemen secara vertikal */
+    align-items: center; /* Pusatkan secara horizontal */
+    justify-content: center; /* Pusatkan secara vertikal */
+    text-align: center;
+}
+
+footer .footer-content {
+    display: flex;
+    flex-direction: column; /* Susun elemen dalam kolom */
+    align-items: center; /* Pusatkan semua elemen */
+}
+
+footer .social-links {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px; /* Jarak antar ikon */
+    flex-wrap: wrap; /* Jika terlalu banyak ikon, pindah ke baris berikutnya */
+    justify-content: center; /* Pusatkan semua tautan */
+}
+
+footer .social-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px; /* Ukuran font untuk teks dan ikon */
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Jarak antara ikon dan teks */
+    transition: color 0.3s;
+}
+
+footer .social-links a i {
+    font-size: 18px; /* Ukuran ikon */
+}
+
+footer .social-links a:hover {
+    color: #00bcd4; /* Warna saat hover */
+}
+
+footer .copyright {
+    font-size: 12px; /* Ukuran font lebih kecil */
+    margin-bottom: 10px;
+}
+
+.time-display {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 10px;
+}
+
+
+h2 {
+    font-size: px;
+    text-align: center;
+    margin: 10px 0; /* Margin untuk heading */
+    color: #1E3E62;
+}
+
+.section-description {
+    font-size: 16px;
+    color: #4a4a4a;
+    margin: 20px auto; /* Margin untuk deskripsi */
+    max-width: 800px; /* Batasi lebar deskripsi */
+    line-height: 1.6; /* Jarak antar baris */
+    text-align: justify; /* Rata kanan-kiri */
+}
+
+nav .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+

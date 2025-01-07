@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+    <title>UAS Mata Kuliah Eksoplanet [Pembahasan No.4-5]</title>
+    <style>
+             body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+            padding-right: 60px; /* Tambahan untuk memberi ruang agar judul tidak tumpang tindih dengan menu */
+        }
+
+        .navbar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .navbar div {
+            width: 30px;
+            height: 4px;
+            background: #fff;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        .menu {
+    display: none; /* Menu tidak terlihat secara default */
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            border-bottom: 1px solid #444;
+        }
+
+        .menu li:last-child {
+            border-bottom: none;
+        }
+
+        .menu a {
+            display: block;
+            text-decoration: none;
+            padding: 10px 20px;
+            color: #fff;
+            transition: background 0.3s ease;
+        }
+
+        .menu a:hover {
+            background: #555;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        section p {
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        section img {
+            display: block;
+            margin: 20px auto;
+            max-width: 70%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            background: #333;
+            color: #fff;
+            font-size: 0.9em;
+        }
+
+        table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #000;
+                text-align: center;
+                padding: 10px;
+            }
+            th {
+                background-color: #f4f4f4;
+            }
+        
+    </style>
+</head>
+<body>
+    <header>
+           <h1>UAS Mata Kuliah AK4122-Eksoplanet Tahun 2023 [Pembahasan No.4-5]</h1>
+            <div class="navbar" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="menu" id="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="astronomy.html">Astronomi</a></li>
+                    <li><a href="#meteorology">Meteorologi</a></li>
+                    <li><a href="#random">Random</a></li>
+                </ul>
+            </div>
+
+    </header>
+    
+    <section>
+        <h4>4.</h4> 
+        <p> Sebuah planet mengorbit bintang identik dengan Matahari pada jarak 1,xx sa. Jika albedo
+            planet 0,2xx, perkirakan suhu (Teq) planet ini !
+            [xx = 2 digit terakhir NIM anda]
+        </p>
+
+        <p>
+            Temperatur Planet dapat ditentukan menggunakan persamaan berikut:
+        </p>
+
+        <p>
+            \[
+            T_{\text{eq}} = \left( \frac{(1 - A) \, L_{\odot}}{16 \pi \sigma \, d^2} \right)^{\frac{1}{4}}
+            \]
+        </p>
+        <p>Dengan (2 digit NIM terakhir adalah 31):</p>
+        <ul>
+            <li>\(A\)  : Albedo planet (\(0.231\))</li>
+            <li>\(L_{\odot}\): Luminositas Matahari (\(3.846 \cdot 10^{11}\; W \))</li>
+            <li>\(\sigma\) : Konstanta Stefan-Boltzmann (\(5.67 \cdot 10^{-8}\; W \cdot m^{-2} \cdot K^{-4} \))</li>
+            <li>\(d\) : Jarak planet dari bintang (\(1.31 \; sa = 1.96 \cdot 10^{11} \; m\))</li>
+        </ul>
+
+        <p>
+            Sehingga jika disubstitusikan akan menghasilkan:
+        </p>
+
+        <p>
+            \[
+            T_{\text{eq}} = \left( \frac{(1 - 0.231) \, (3.846 \cdot10^{26}\; \cancel{W} )}{16 \pi (5.67 \cdot 10^{-8}\; \cancel{W} \cdot \cancel{m^{-2}} \cdot K^{-4}) \, (1.96 \cdot 10^{11} \; \cancel{m})^2} \right)^{\frac{1}{4}}
+            \]
+
+            \[
+            T_{\text{eq}} = \left( \frac{2.9576\cdot 10^{26}}{1.09488 \cdot 10^{17}}  \cdot K^{4}\right)^{\frac{1}{4}} = 227.98 \; K
+            \]
+            
+        </p>
+
+    </section>
+
+    <section>
+        <h4>
+            5.
+        </h4>
+
+        <p>
+            Hitung Earth Similarity Index (ESI) untuk planet Venus dan Mars, mana yang lebih mirip?
+            Hitung ESI untuk satu eksoplanet yang kamu sukai !
+        </p>
+
+        <p>
+            Untuk menghitung ESI planet Tata Surya, akan digunakan persamaan berikut:
+            \[
+              \text{ESI} = \prod^{n}_{i=1} \left( 1 - \bigg|\frac{x_i - x_{io}}{x_i + x_{io}}\bigg| \right)^{\frac{w_i}{n}}
+            \]
+        </p>
+
+        <p>Dengan:</p>
+        <ul>
+            <li>\(x_i\)  : properti planet</li>
+            <li>\(n\): jumlah properti planet</li>
+            <li>\(x_{io}\) : nilai referensi terestrial</li>
+            <li>\(w_i\) : weight exponent</li>
+        </ul>
+
+        Untuk nilai referensi dan weight exponent diperoleh dari 
+        <a href="https://phl.upr.edu/projects/earth-similarity-index-esi" style="color:rgb(39, 125, 236)e;">sini</a> 
+        (Eu = Earth's Units)
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Properti Planet</th>
+                    <th>Nilai Referensi</th>
+                    <th>Weight Exponent</th>
+                    <th>Venus (v)</th>
+                    <th>Mars (m)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Radius rata-rata (r)</td>
+                    <td>1.0 Eu</td>
+                    <td>0.57</td>
+                    <td>0.95</td>
+                    <td>0.532</td>
+                </tr>
+                <tr>
+                    <td>Bulk Density (\(\rho \))</td>
+                    <td>1.0 Eu</td>
+                    <td>1.07</td>
+                    <td>0.945</td>
+                    <td>0.709</td>
+                </tr>
+                <tr>
+                    <td>Escape Velocity (ev)</td>
+                    <td>1.0 Eu</td>
+                    <td>0.70</td>
+                    <td>0.93</td>
+                    <td>0.45</td>
+                </tr>
+                <tr>
+                    <td>Surface Temperature (t)</td>
+                    <td>288 K</td>
+                    <td>5.58</td>
+                    <td>737 K</td>
+                    <td>210 K</td>
+                </tr>
+            </tbody>
+        </table>
+     <p>
+        Sehingga ESI Venus adalah: 
+        \[
+        \text{ESI}_{venus} = \prod^{4}_{i=1} \left( 1 - \bigg|\frac{x_i - x_{io}}{x_i + x_{io}}\bigg| \right)^{\frac{w_i}{4}}
+        \]
+
+        \[
+        \text{ESI}_{venus} = \left( 1 - \bigg|\frac{x_{vr} - x_{vro}}{x_{vr} + x_{vro}}\bigg| \right)^{\frac{w_r}{4}} \times 
+        \left( 1 - \bigg|\frac{x_{v\rho} - x_{v\rho o}}{x_{v\rho} + x_{v\rho o}}\bigg| \right)^{\frac{w_{\rho}}{4}}
+        \times \left( 1 - \bigg|\frac{x_{vev} - x_{vevo}}{x_{vev} + x_{vevo}}\bigg| \right)^{\frac{w_{ev}}{4}}
+        \times \left( 1 - \bigg|\frac{x_{vt} - x_{vto}}{x_{vt} + x_{vto}}\bigg| \right)^{\frac{w_t}{4}}
+        \]
+
+        \[
+        \text{ESI}_{venus} = \left( 1 - \bigg|\frac{0.95 - 1}{0.95 + 1}\bigg| \right)^{\frac{0.57}{4}} \times 
+        \left( 1 - \bigg|\frac{0.945 - 1}{0.945 + 1}\bigg| \right)^{\frac{1.07}{4}}
+        \times \left( 1 - \bigg|\frac{0.93 - 1}{0.93 + 1}\bigg| \right)^{\frac{0.7}{4}}
+        \times \left( 1 - \bigg|\frac{737 - 288}{737 + 288}\bigg| \right)^{\frac{5.58}{4}}
+        \]
+
+        \[
+        \text{ESI}_{venus} = 0.9963 \cdot 0.99235 \cdot 0.993556 \cdot 0.44754
+        \]
+
+        \[
+        \text{ESI}_{venus} = 0.4396
+        \]
+     </p>
+
+     <p>Dengan cara yang sama, didapati bahwa ESI planet Mars adalah 0.655. Sejatinya 
+        planet Venus benar-benar mirip dengan Bumi, hanya saja faktor temperatur planet
+        Venus yang sangat tinggi menyebabkan planet ini sangat "tidak mirip" Bumi.
+     </p>
+
+     <p>Untuk eksoplanet akan menyusul......................</p>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2025 Praza Kembaren. Ad Astra Per Aspera.</p>
+    </footer>
+</body>
+</html>
