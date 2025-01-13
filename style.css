@@ -208,3 +208,76 @@ nav .wrapper {
     align-items: center;
 }
 
+/* Responsive Styles for Android */
+@media (max-width: 768px) {
+    nav .wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* Jarak antar menu */
+    }
+
+    .menu ul li {
+        margin: 5px 0; /* Spasi antar item menu */
+    }
+
+    section#home img {
+        max-width: 90%; /* Membuat gambar menyesuaikan lebar layar */
+        height: auto; /* Menjaga proporsi gambar */
+        margin: 10px auto;
+    }
+
+    .kolom p {
+        font-size: 16px; /* Sesuaikan ukuran teks untuk layar kecil */
+        padding: 0 10px; /* Tambahkan padding agar teks tidak terlalu melebar */
+    }
+
+    .deskripsi {
+        font-size: 22px; /* Sesuaikan ukuran quotes */
+        padding: 0 10px;
+    }
+
+    .kolom h2 {
+        font-size: 16px; /* Ukuran lebih kecil untuk heading */
+        padding: 0 10px;
+    }
+
+    footer .social-links {
+        flex-wrap: wrap;
+        gap: 10px; /* Kurangi jarak antar ikon */
+        justify-content: center; /* Pusatkan ikon sosial */
+    }
+
+    footer .social-links a {
+        font-size: 14px; /* Ukuran lebih kecil untuk teks dan ikon */
+    }
+}
+
+@media (max-width: 480px) {
+    .menu ul {
+        gap: 5px; /* Kurangi jarak antar menu lebih jauh */
+    }
+
+    .deskripsi {
+        font-size: 20px; /* Ukuran quotes lebih kecil */
+    }
+
+    .kolom p {
+        font-size: 14px; /* Teks lebih kecil */
+    }
+
+    footer .social-links {
+        flex-direction: column; /* Ikon ditampilkan dalam kolom */
+        gap: 5px; /* Jarak antar ikon lebih kecil */
+    }
+
+    footer .social-links a {
+        font-size: 12px; /* Ukuran ikon lebih kecil */
+    }
+}
+
+
