@@ -211,8 +211,10 @@ nav .wrapper {
 /* Responsive Styles for Android */
 @media (max-width: 768px) {
     nav .wrapper {
-        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
+        position: relative; /* Untuk mengontrol posisi dropdown menu */
     }
 
     /* Menu: Ubah menjadi ikon garis tiga */
@@ -227,6 +229,13 @@ nav .wrapper {
         padding: 10px 0;
     }
 
+    .logo a {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    }
+
     .menu ul {
         flex-direction: column;
         align-items: center;
@@ -239,7 +248,7 @@ nav .wrapper {
 
     /* Tombol garis tiga */
     .menu-toggle {
-        display: flex;
+        display: none; /* Default: tersembunyi di layar besar */
         align-items: center;
         justify-content: center;
         background: transparent;
@@ -247,13 +256,12 @@ nav .wrapper {
         color: white;
         font-size: 24px;
         cursor: pointer;
-        margin-bottom: 10px;
     }
 
     /* Gambar tetap lingkaran */
     section#home img {
         max-width: 90%; /* Menyesuaikan gambar dengan layar */
-        height: auto; /* Mempertahankan proporsi */
+        height: 90%; /* Mempertahankan proporsi */
         margin: 10px auto;
         border-radius: 50%; /* Memastikan lingkaran */
     }
@@ -313,6 +321,38 @@ nav .wrapper {
 
     footer .social-links a {
         font-size: 12px;
+    }
+}
+
+/* Tampilkan menu toggle di perangkat kecil */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Sembunyikan menu default */
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%; /* Di bawah navigasi */
+        left: 0;
+        width: 100%;
+        background: #1E3E62;
+        z-index: 10;
+        padding: 10px 0;
+    }
+
+    /* Dropdown menu saat toggle aktif */
+    .menu ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Tampilkan menu saat toggle diklik */
+    .menu.active {
+        display: block;
     }
 }
 
