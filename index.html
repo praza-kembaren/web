@@ -48,6 +48,38 @@
         updateTime();
         setInterval(updateTime, 1000);
     </script>
+    <nav>
+        <div class="wrapper">
+            <div class="logo"><a href=''>Praza Kembaren</a></div>
+
+            <!-- Tombol menu garis tiga -->
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Menu -->
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="astronomy.html">Astronomi</a></li> 
+                    <li><a href="#meteorology">Meteorologi</a></li>
+                    <li><a href="#random">Random</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Elemen waktu -->
+        <div class="time-display" id="timeDisplay"></div>
+    </nav>
+
+
+    <script>
+        // JavaScript untuk toggle menu
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+    
 </body>
 
 <footer>
