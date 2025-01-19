@@ -3,44 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praza Kembaren Personal Website</title>
+    <title>Praza Kembaren</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <nav>
         <div class="wrapper">
-            <div class="logo"><a href=''>Praza Kembaren</a></div>
-                    <!-- Tombol menu garis tiga -->
-        <button class="menu-toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </button>
-            
+            <div class="logo">
+                <a href="">Praza Kembaren</a>
+            </div>
             <div class="menu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="astronomy.html">Astronomi</a></li> 
-                    <li><a href="#meteorology">Meteorologi</a></li>
-                    <li><a href="#random">Random</a></li>
+                    <li><a href="astronomy.html">Astronomi</a></li>
+                    <li><a href="meteorologi.html">Meteorologi</a></li>
+                    <li><a href="meteorologi.html">Random</a></li>
                 </ul>
             </div>
         </div>
-        <!-- Tambahkan elemen untuk jam -->
         <div class="time-display" id="timeDisplay"></div>
     </nav>
+    
+
     <div class="wrapper">
         <section id="home">
             <img src="gif.gif" alt="Astronomi gif" style="width:300px;height:300px;">
             <div class="kolom">
                 <p class="deskripsi">Somewhere, Something Incredible is Waiting to be Known</p>
                 <h2>Carl Sagan</h2>
-                <p class="justify">Hello, I’m Praza Kembaren, an Atmospheric and Planetary Sciences grad with a big interest in creating N-Body simulations, modeling the trajectories or orbits of small solar system bodies, analyzing their orbital evolution and dynamics, and studying exoplanet systems. This website contains my coursework as a student and a few other small astronomy-related topics (also botany :>).</p>
+                <p class="justify">Hello, I’m Praza, an Atmospheric and Planetary Sciences grad with a big interest in creating N-Body simulations, modeling the trajectories or orbits of small solar system bodies, analyzing their orbital evolution and dynamics, and studying exoplanet systems. This website contains my coursework as a student and a few other small astronomy-related topics (also botany :>).</p>
             </div>
         </section>
     </div>
-
+      
+ 
+    <!-- Tambahkan JavaScript di sini -->
     <script>
-        // JavaScript untuk memperbarui waktu
+        // Update time display
         function updateTime() {
             const now = new Date();
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -49,11 +49,10 @@
             document.getElementById('timeDisplay').textContent = `${date}, ${time} WIB (UTC+7)`;
         }
 
-        // Perbarui waktu setiap detik
+        // Initialize and update time every second
         updateTime();
         setInterval(updateTime, 1000);
     </script>
-    
 </body>
 
 <footer>
@@ -68,7 +67,5 @@
             </div>
         </div>
     </div>
-
 </footer>
-
 </html>
