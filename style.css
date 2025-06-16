@@ -1,19 +1,13 @@
-/* Reset default margins */
+/* Original CSS for index.html */
 body {
     margin: 0;
-    font-family: 'Lucida Sans', Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+    font-family: 'Lucida Sans';
 }
 
-/* Navigation styles */
 nav {
     background: linear-gradient(135deg, #1E3E62, rgb(2, 2, 58));
     padding: 20px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
 
 .wrapper {
@@ -28,6 +22,7 @@ nav {
 .logo a {
     color: white;
     font-size: 24px;
+    font-weight: none;
     text-decoration: none;
 }
 
@@ -39,47 +34,37 @@ nav {
     gap: 15px;
 }
 
+.menu ul li {
+    display: inline;
+}
+
 .menu ul li a {
     color: white;
     text-decoration: none;
     font-size: 16px;
-    padding: 8px 12px;
-    transition: color 0.3s ease, background 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .menu ul li a:hover {
     color: rgb(158, 158, 253);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
 }
 
-.time-display {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    color: white;
-    font-size: 12px;
-    text-align: right;
-}
-
-/* Home section styles */
 section#home {
-    display: flex;
-    align-items: center;
-    padding: 60px 20px;
+    text-align: center;
+    padding: 40px 20px;
     background: white;
-    min-height: calc(100vh - 120px);
 }
 
 section#home img {
     max-width: 300px;
     border-radius: 10px;
-    margin-right: 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-.kolom {
-    max-width: 600px;
+.kolom p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
 }
 
 .deskripsi {
@@ -87,29 +72,89 @@ section#home img {
     font-weight: bold;
     color: #6a11cb;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .kolom h2 {
     font-size: 18px;
+    font-weight: normal;
     color: #333;
-    margin: 0 0 20px;
+    margin-top: 0;
+    text-align: center;
 }
 
-.kolom p {
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .social-links {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+footer .social-links a {
+    color: #fff;
+    text-decoration: none;
     font-size: 16px;
-    line-height: 1.6;
-    color: #555;
-    text-align: justify;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s;
 }
 
-/* Astronomy section styles */
+footer .social-links a i {
+    font-size: 18px;
+}
+
+footer .social-links a:hover {
+    color: #00bcd4;
+}
+
+footer .copyright {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.time-display {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 10px;
+}
+
+nav .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* New styles for astronomy.html */
 section#astronomy {
-    padding: 60px 20px;
-    background: #f9f9f9;
+    padding: 40px 20px;
+    background: white;
 }
 
 section#astronomy h2 {
-    font-size: 32px;
+    font-size: 28px;
     color: #1E3E62;
     text-align: center;
     margin-bottom: 20px;
@@ -118,7 +163,7 @@ section#astronomy h2 {
 .section-description {
     font-size: 16px;
     color: #4a4a4a;
-    margin: 0 auto 40px;
+    margin: 0 auto 30px;
     max-width: 800px;
     line-height: 1.6;
     text-align: center;
@@ -126,40 +171,44 @@ section#astronomy h2 {
 
 .post-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .post-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .post-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .post-image {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
 .post-card h3 {
     font-size: 20px;
-    margin: 15px;
-    line-height: 1.4;
+    margin: 0 0 10px;
 }
 
 .post-card h3 a {
     color: #1E3E62;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .post-card h3 a:hover {
@@ -169,13 +218,11 @@ section#astronomy h2 {
 .post-description {
     font-size: 14px;
     color: #555;
-    margin: 0 15px 15px;
+    margin: 0 0 10px;
     line-height: 1.5;
 }
 
 .post-card a:last-child {
-    display: block;
-    margin: 0 15px 15px;
     color: #6a11cb;
     text-decoration: none;
     font-weight: bold;
@@ -186,63 +233,7 @@ section#astronomy h2 {
     color: #1E3E62;
 }
 
-/* Footer styles */
-footer {
-    background: #1E3E62;
-    color: white;
-    padding: 30px 0;
-    text-align: center;
-}
-
-footer .wrapper {
-    flex-direction: column;
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.copyright {
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-.social-links {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.social-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: rgb(158, 158, 253);
-}
-
-.social-links a i {
-    font-size: 18px;
-}
-
-/* General heading styles */
-h2 {
-    font-size: 32px;
-    color: #1E3E62;
-    text-align: center;
-    margin: 20px 0;
-}
-
-/* Responsive styles */
+/* Responsive styles for both pages */
 @media (max-width: 768px) {
     nav .wrapper {
         flex-direction: column;
@@ -253,24 +244,49 @@ h2 {
         flex-direction: column;
         align-items: center;
         gap: 10px;
-        margin-top: 10px;
+    }
+
+    .menu ul li {
+        margin: 5px 0;
+    }
+
+    section#home img {
+        max-width: 90%;
+        height: auto;
+        margin: 10px auto;
+        border-radius: 50%;
+    }
+
+    .kolom p {
+        font-size: 16px;
+        padding: 0 15px;
+        text-align: justify;
+    }
+
+    .deskripsi {
+        font-size: 22px;
+        padding: 0 15px;
+    }
+
+    .kolom h2 {
+        font-size: 18px;
+        padding: 0 15px;
     }
 
     .time-display {
         text-align: center;
-        font-size: 12px;
+        font-size: 14px;
         margin-top: 10px;
     }
 
-    section#home {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 20px;
+    footer .social-links {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
     }
 
-    section#home img {
-        margin: 0 0 20px;
-        max-width: 90%;
+    footer .social-links a {
+        font-size: 14px;
     }
 
     .post-container {
@@ -279,32 +295,32 @@ h2 {
 }
 
 @media (max-width: 480px) {
-    .logo a {
-        font-size: 20px;
-    }
-
-    .menu ul li a {
-        font-size: 14px;
+    .menu ul {
+        gap: 5px;
     }
 
     .deskripsi {
-        font-size: 22px;
+        font-size: 18px;
     }
 
     .kolom p {
         font-size: 14px;
     }
 
-    section#astronomy h2 {
-        font-size: 28px;
-    }
-
-    .social-links {
+    footer .social-links {
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
     }
 
-    .social-links a {
-        font-size: 14px;
+    footer .social-links a {
+        font-size: 12px;
+    }
+
+    section#astronomy h2 {
+        font-size: 24px;
+    }
+
+    .post-card h3 {
+        font-size: 18px;
     }
 }
