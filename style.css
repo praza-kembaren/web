@@ -59,7 +59,7 @@ img:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 0.5rem; /* Dorong JD lebih ke bawah */
+    margin-top: 0rem; /* Dorong JD lebih ke bawah */
 }
 
 .julian-date {
