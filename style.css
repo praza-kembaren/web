@@ -52,20 +52,17 @@ img:hover {
     background: transparent !important;
     padding: 0;
     border: none;
-}
-
-.datetime-container {
-    /* Pastikan waktu dan JD sejajar pada sumbu Y */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0.5rem; /* Dorong JD lebih ke bawah */
+    box-shadow: none;
 }
 
 .julian-date {
-    /* Posisikan JD di sisi kanan */
+    /* Posisikan JD di sisi kanan, sejajar dengan time-display */
+    position: absolute;
+    right: 1rem;
+    top: 2.5rem; /* Sesuaikan nilai ini untuk menaikkan/turunkan JD */
+    /* Untuk menaikkan lebih ke atas: kurangi nilai, misalnya top: 2.25rem atau top: 2rem */
+    /* Untuk menurunkan: tingkatkan nilai, misalnya top: 2.75rem atau top: 3rem */
     text-align: right;
-    margin-top: 0.15rem; /* Tambahan untuk memastikan lebih ke bawah */
 }
 
 footer {
@@ -114,10 +111,6 @@ footer .social-links a:hover {
     .logo-container {
         max-width: 70%;
     }
-
-    .datetime-container {
-        display: none; /* Sembunyikan datetime-container di mobile */
-    }
 }
 
 @media (max-width: 480px) {
@@ -150,7 +143,7 @@ footer .social-links a:hover {
         font-size: 1.25rem;
     }
 
-    img {
+    .img {
         width: 250px;
         height: 250px;
     }
