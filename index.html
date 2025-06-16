@@ -12,13 +12,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-white font-sans">
-    <header class="bg-gradient-to-r from-indigo-900 to-blue-900 text-white shadow-lg sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <header class="bg-gray-800 text-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center relative">
             <div class="logo-container flex flex-col items-start">
                 <a href="/" class="logo text-2xl font-bold">Altair's Personal Page</a>
                 <div class="time-display text-sm mt-1" id="timeDisplay"></div>
             </div>
-            <div class="julian-date text-sm hidden md:block" id="julianDate"></div>
             <button class="menu-toggle md:hidden focus:outline-none" aria-label="Toggle navigation" aria-expanded="false">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
@@ -30,6 +29,7 @@
                     <li><a href="random.html" class="hover:text-indigo-300 transition">Random</a></li>
                 </ul>
             </div>
+            <div class="julian-date text-sm md:block hidden absolute right-4" id="julianDate"></div>
         </nav>
     </header>
 
@@ -50,16 +50,16 @@
                 <p class="mb-4">© 2025 Praza Kembaren. All Rights Reserved.</p>
                 <div class="social-links flex justify-center gap-4 flex-wrap">
                     <a href="https://www.linkedin.com/in/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
-                        <i class="fab fa-linkedin"></i> LinkedIn
+                        <i class="fab fa-linkedin"></i><span>LinkedIn</span>
                     </a>
                     <a href="https://facebook.com/praza.kembaren" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
-                        <i class="fab fa-facebook"></i> Facebook
+                        <i class="fab fa-facebook"></i><span>Facebook</span>
                     </a>
                     <a href="https://www.instagram.com/prazakembaren/" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
-                        <i class="fab fa-instagram"></i> Instagram
+                        <i class="fab fa-instagram"></i><span>Instagram</span>
                     </a>
                     <a href="https://github.com/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
-                        <i class="fab fa-github"></i> GitHub
+                        <i class="fab fa-github"></i><span>GitHub</span>
                     </a>
                 </div>
             </div>
