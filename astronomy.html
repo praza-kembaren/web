@@ -2,84 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Praza Kembaren</title>
-    <!-- Tailwind CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Font Awesome CDN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astronomy Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-white font-sans">
-    <header class="bg-gray-800 text-white shadow-lg sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-4 relative">
-            <div class="flex justify-between items-center">
-                <div class="logo-container flex flex-col items-start">
-                    <a href="/" class="logo text-2xl font-bold">Altair's Personal Page</a>
-                    <div class="time-display text-sm mt-1" id="timeDisplay"></div>
-                </div>
-                <button class="menu-toggle md:hidden focus-outline-none" aria-label="Toggle navigation" aria-expanded="false">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-                <div class="menu hidden md:flex md:items-center md:gap-6">
-                    <ul class="flex flex-col md:flex-row gap-4">
-                        <li><a href="index.html" class="hover:text-indigo-300 transition">Home</a></li>
-                        <li><a href="astronomy.html" class="hover:text-indigo-300 transition">Astronomi</a></li>
-                        <li><a href="meteorologi.html" class="hover:text-indigo-300 transition">Meteorologi</a></li>
-                        <li><a href="random.html" class="hover:text-indigo-300 transition">Random</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="julian-date text-sm md:block hidden" id="julianDate"></div>
-        </nav>
-    </header>
-
-    <main class="container mx-auto px-4 py-8">
-        <section id="home" class="text-center">
-            <img src="gif.gif" alt="Astronomi animation" class="mx-auto w-[300px] h-[300px] rounded-lg shadow-md mb-4">
-            <div class="kolom">
-                <p class="deskripsi text-2xl font-bold text-indigo-600 mb-2">"Somewhere, Something Incredible is Waiting to be Known"</p>
-                <h2 class="text-lg text-gray-700 mb-4">Carl Sagan</h2>
-                <p class="text-gray-600 leading-relaxed text-justify mx-auto max-w-2xl">Hello, I’m Praza, an Atmospheric and Planetary Sciences grad with a big interest in creating N-Body simulations, modeling the trajectories or orbits of small solar system bodies, analyzing their orbital evolution and dynamics, and studying exoplanet systems. This website contains my coursework as a student and a few other small astronomy-related topics (also botany :>).</p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="container mx-auto px-4 text-center">
-            <div class="footer-content">
-                <p class="mb-4">© 2025 Praza Kembaren. All Rights Reserved.</p>
-                <div class="social-links flex justify-center gap-4 flex-wrap">
-                    <a href="https://www.linkedin.com/in/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
-                        <i class="fab fa-linkedin"></i><span>LinkedIn</span>
-                    </a>
-                    <a href="https://facebook.com/praza.kembaren" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
-                        <i class="fab fa-facebook"></i><span>Facebook</span>
-                    </a>
-                    <a href="https://www.instagram.com/prazakembaren/" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
-                        <i class="fab fa-instagram"></i><span>Instagram</span>
-                    </a>
-                    <a href="https://github.com/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
-                        <i class="fab fa-github"></i><span>GitHub</span>
-                    </a>
-                </div>
+<body>
+    <nav>
+        <div class="wrapper">
+            <div class="logo"><a href="index.html">Altair's Personal Page</a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="astronomy.html">Astronomi</a></li>
+                    <li><a href="#meteorology">Meteorologi</a></li>
+                    <li><a href="#random">Random</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+                <div class="time-display" id="timeDisplay"></div>
+    </nav>
 
+    <!-- Astronomy Section -->
+    <section id="astronomy">
+        <h2>Astronomi</h2>
+        <p class="section-description">
+            Halaman ini berisi artikel, penelitian, dan beberapa hal yang saya "anggap" unik. Mostly, hasil pemrograman sederhana dengan Python (tugas kuliah), fenomena-fenomena astronomis, dan tentunya tentang Benda Kecil Tata Surya.
+        </p>
+        <div class="post-container">
+            <div class="post-card">
+                <img src="orb.png" alt="Kembalinya Long-Lost Comet D/1894 F1 (Denning) ?" class="post-image">
+                <h3><a href="D1894F1Denning.html">Kembalinya Long-Lost Comet D/1894 F1 (Denning) ?</a></h3>
+                <p class="post-description">Komet yang telah lama hilang, D/1894 F1 (Denning), telah ditemukan kembali...</p>
+                <a href="D1894F1Denning.html">Read More</a>
+            </div>
+            <div class="post-card">
+                <img src="esi.png" alt="ESI" class="post-image">
+                <h3><a href="ESI.html">UAS Mata Kuliah Eksoplanet [Pembahasan No.4-5]</a></h3>
+                <p class="post-description">Nomor 4-5 merupakan soal kalkulasi tentang parameter fisis planet dan Indeks Kesamaan Bumi...</p>
+                <a href="ESI.html">Read More</a>
+            </div>
+            <div class="post-card">
+                <img src="bulan.png" alt="bulan" class="post-image">
+                <h3><a href="almanakbulan.html">Seri Almanak: Bulan</a></h3>
+                <p class="post-description">Kumpulan beberapa peristiwa astronomis terkait Bulan selama rentang tahun 2025-2500...</p>
+                <a href="almanakbulan.html">Read More</a>
+            </div>
+        </div>
+    </section>
+
+        <!-- Tambahkan JavaScript di sini -->
     <script>
-        // Toggle mobile menu
-        const menuToggle = document.querySelector('.menu-toggle');
-        const menu = document.querySelector('.menu');
-        menuToggle.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-            const isExpanded = !menu.classList.contains('hidden');
-            menuToggle.setAttribute('aria-expanded', isExpanded);
-            menuToggle.querySelector('i').classList.toggle('fa-bars');
-            menuToggle.querySelector('i').classList.toggle('fa-times');
-        });
-
         // Update time display
         function updateTime() {
             const now = new Date();
@@ -89,17 +61,15 @@
             document.getElementById('timeDisplay').textContent = `${date}, ${time} WIB (UTC+7)`;
         }
 
-        // Calculate and update Julian Date
-        function updateJulianDate() {
-            const now = new Date();
-            const JD = (now.getTime() / 86400000) + 2440587.5;
-            document.getElementById('julianDate').textContent = `Julian Date: ${JD.toFixed(5)}`;
-        }
-
+        // Initialize and update time every second
         updateTime();
-        updateJulianDate();
         setInterval(updateTime, 1000);
-        setInterval(updateJulianDate, 1000);
     </script>
+    
 </body>
+
+<footer>
+    <p>&copy; 2025 Praza Kembaren. Ad Astra Per Aspera.</p>
+</footer>
+
 </html>
