@@ -9,7 +9,7 @@
 <body>
     <nav>
         <div class="wrapper">
-            <div class="logo"><a href="index.html">Praza Kembaren</a></div>
+            <div class="logo"><a href="index.html">Altair's Personal Page</a></div>
             <div class="menu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -43,6 +43,23 @@
             <!-- Add more posts as needed -->
         </div>
     </section>
+
+        <!-- Tambahkan JavaScript di sini -->
+    <script>
+        // Update time display
+        function updateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const date = now.toLocaleDateString('id', options);
+            const time = now.toLocaleTimeString('en-US', { hour12: false });
+            document.getElementById('timeDisplay').textContent = `${date}, ${time} WIB (UTC+7)`;
+        }
+
+        // Initialize and update time every second
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+    
 </body>
 
 <footer>
