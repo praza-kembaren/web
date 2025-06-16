@@ -48,14 +48,24 @@ img:hover {
 }
 
 .time-display, .julian-date {
-    /* Hapus background dan padding untuk menghilangkan box */
+    /* Pastikan tidak ada efek box */
+    background: transparent !important;
     padding: 0;
+    border: none;
+}
+
+.datetime-container {
+    /* Pastikan waktu dan JD sejajar pada sumbu Y */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem; /* Dorong JD lebih ke bawah */
 }
 
 .julian-date {
-    /* Posisikan JD sejajar dengan time-display pada sumbu Y, di sisi kanan */
-    top: 3.5rem; /* Sesuaikan dengan posisi time-display */
-    transform: translateY(-50%);
+    /* Posisikan JD di sisi kanan */
+    text-align: right;
+    margin-top: 0.25rem; /* Tambahan untuk memastikan lebih ke bawah */
 }
 
 footer {
@@ -103,6 +113,10 @@ footer .social-links a:hover {
 
     .logo-container {
         max-width: 70%;
+    }
+
+    .datetime-container {
+        display: none; /* Sembunyikan datetime-container di mobile */
     }
 }
 
