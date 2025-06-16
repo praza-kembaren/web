@@ -13,23 +13,28 @@
 </head>
 <body class="bg-white font-sans">
     <header class="bg-gray-800 text-white shadow-lg sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center relative">
-            <div class="logo-container flex flex-col items-start">
-                <a href="/" class="logo text-2xl font-bold">Altair's Personal Page</a>
-                <div class="time-display text-sm mt-1" id="timeDisplay"></div>
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo-container flex flex-col items-start">
+                    <a href="/" class="logo text-2xl font-bold">Altair's Personal Page</a>
+                    <div class="time-display text-sm mt-1" id="timeDisplay"></div>
+                </div>
+                <button class="menu-toggle md:hidden focus-outline-none" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                <div class="menu hidden md:flex md:items-center md:gap-6">
+                    <ul class="flex flex-col md:flex-row gap-4">
+                        <li><a href="index.html" class="hover:text-indigo-300 transition">Home</a></li>
+                        <li><a href="astronomy.html" class="hover:text-indigo-300 transition">Astronomi</a></li>
+                        <li><a href="meteorologi.html" class="hover:text-indigo-300 transition">Meteorologi</a></li>
+                        <li><a href="random.html" class="hover:text-indigo-300 transition">Random</a></li>
+                    </ul>
+                </div>
             </div>
-            <button class="menu-toggle md:hidden focus:outline-none" aria-label="Toggle navigation" aria-expanded="false">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-            <div class="menu hidden md:flex md:items-center md:gap-6">
-                <ul class="flex flex-col md:flex-row gap-4">
-                    <li><a href="index.html" class="hover:text-indigo-300 transition">Home</a></li>
-                    <li><a href="astronomy.html" class="hover:text-indigo-300 transition">Astronomi</a></li>
-                    <li><a href="meteorologi.html" class="hover:text-indigo-300 transition">Meteorologi</a></li>
-                    <li><a href="random.html" class="hover:text-indigo-300 transition">Random</a></li>
-                </ul>
+            <div class="datetime-container flex justify-between items-center mt-2">
+                <div class="time-display text-sm md:block hidden" id="timeDisplay"></div>
+                <div class="julian-date text-sm md:block hidden" id="julianDate"></div>
             </div>
-            <div class="julian-date text-sm md:block hidden absolute right-4" id="julianDate"></div>
         </nav>
     </header>
 
