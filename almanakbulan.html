@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comet D/1894 F1 Denning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .navbar div {
+            width: 30px;
+            height: 4px;
+            background: #fff;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: #333;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            border-bottom: 1px solid #444;
+        }
+
+        .menu li:last-child {
+            border-bottom: none;
+        }
+
+        .menu a {
+            display: block;
+            text-decoration: none;
+            padding: 10px 20px;
+            color: #fff;
+            transition: background 0.3s ease;
+        }
+
+        .menu a:hover {
+            background: #555;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        section p {
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        section img {
+            display: block;
+            margin: 20px auto;
+            max-width: 70%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            background: #333;
+            color: #fff;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kembalinya Long-Lost Comet D/1894 F1 (Denning)?</h1>
+        <div class="navbar" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="menu" id="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="astronomy.html">Astronomi</a></li>
+                <li><a href="#meteorology">Meteorologi</a></li>
+                <li><a href="#random">Random</a></li>
+            </ul>
+        </div>
+    </header>
+
+        <section>
+            <h2>------------------------</h2>
+            <p>
+                2 Agustus 2024, Telegram elektronik dari Central Bureau for Astronomical Telegrams, bernomor 5425,
+                M. Meyer (Limburg, Jerman) mengidentifikasi adanya "kesamaan orbit" antara komet D/1894 F1 (Denning) 
+                dengan asteorid pelintas-Mars 2007 HE4. Hal ini ia dapati dari Integrasi orbit yang ia lakukan 
+                (dengan waktu simulasi maju dan simulasi mundur). Hasilnya, orbit 2007 HE4 menunjukkan kesamaan 
+                dengan orbit D/1894 F1 (Denning) yang diprediksi oleh S. Nakano. Ia menduga bahwa Komet ini pecah 
+                ketika ditemukan oleh Denning pada 1894 (saat itu komet Denning berjarak sekitar 0.4 sa dari Bumi).
+            </p>
+            
+            <p>
+                Saat saya mendapati pesan telegram tersebut, orbit dua objek ini masih terpisah (karena masih diyakini 
+                sebagai objek yang berbeda). Beruntungnya, saya berkesempatan melakukan integrasi orbit untuk dua 
+                objek ini. Menggunakan modul REBOUND, melibatkan kedelapan planet serta Bulan, simulasi ini dilakukan 
+                dalam waktu mundur selama 200 tahun setelah epos (simulasi hanya dilakukan dalam waktu mundur bertujuan 
+                untuk melihat evolusi orbitnya).
+            </p>
+    
+            <img src="orb.png" alt="Orbit Simulation">
+    
+            <p> Lintasan orbit Komet Denning ditunjukkan dengan warna ungu,
+                sedangkan orbit Asteroid 2007 HE4 berwarna hijau. Sekilas orbit keduanya
+                tidak jauh berbeda terlebih dari segi eksentrisitasnya. Selain itu, orbit Komet 
+                Denning cenderung tidak stabil jika dibandingkan dengan Asteroid 2007 HE4. Namun dari
+                visual ini saja rasanya kurang, mari cek dinamika elemen orbitnya.
+            </p>
+    
+            <img src="eorb.png" alt="Orbit Simulation">
+    
+            <p>
+                Hasilnya cukup menarik bukan? Elemen orbit keduanya identik. Grafik berwarna 
+                hijau merupakan Asteroid 2007 HE4, biru merupakan Komet Denning, dan oranye
+                merupakan rerata keduanya (hanya iseng saja). Orbit Komet Denning
+                mengalami "perubahan" pada sekitar tahun integrasi -100 (1924) dan tahun -35 an (1989).
+                Nah, dari informasi Telegram tadi, Komet ini berpapasan dekat dengan Jupiter pada
+                18 Juni 1925 pada jarak 0.24 sa dan pada 8 November 1986 (jarak 0.19 sa).
+            </p>
+    
+            <h4>
+                Kini Komet tersebut telah "dirubah namanya" menjadi Komet 489P/Denning [sesuai aturan penamaan komet, dari komet hilang (D/) menjadi
+                komet periodik (P/)] .
+            </h4>
+    
+            <h2>
+                Lampiran
+            </h2>
+    
+            <img src="image.png" alt="Orbit Simulation">
+        </section>
+    
+    
+        <footer>
+            <p>&copy; 2025 Praza Kembaren. Ad Astra Per Aspera.</p>
+        </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
