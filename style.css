@@ -70,8 +70,10 @@ img:hover {
 .julian-date {
     /* Posisikan JD di tengah bawah GIF */
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto 1rem auto; /* Pastikan margin simetris, tambah jarak bawah */
     display: block;
+    width: 100%; /* Pastikan elemen mengambil lebar penuh untuk centering */
+    position: relative; /* Hapus pengaruh posisi absolut sebelumnya */
 }
 
 footer {
