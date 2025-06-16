@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background: linear-gradient(135deg, #1E3E62, rgb(2, 2, 58));
+    background: #1F2937; /* Biru gelap menarik, sama dengan footer */
     transition: all 0.3s ease;
 }
 
@@ -48,9 +48,18 @@ img:hover {
 }
 
 .time-display, .julian-date {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    padding: 4px 8px;
+    /* Hapus background dan padding untuk menghilangkan box */
+    padding: 0;
+}
+
+.julian-date {
+    /* Posisikan JD sejajar dengan time-display pada sumbu Y, di sisi kanan */
+    top: 3.5rem; /* Sesuaikan dengan posisi time-display */
+    transform: translateY(-50%);
+}
+
+footer {
+    background: #1F2937; /* Sesuaikan dengan header */
 }
 
 footer .social-links a {
@@ -68,7 +77,7 @@ footer .social-links a:hover {
         top: 100px;
         left: 0;
         width: 100%;
-        background: linear-gradient(135deg, #1E3E62, rgb(2, 2, 58));
+        background: #1F2937; /* Sesuaikan dengan header */
         padding: 1rem;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
@@ -89,6 +98,7 @@ footer .social-links a:hover {
     .time-display {
         font-size: 0.875rem;
         text-align: left;
+        margin-left: 0; /* Hilangkan indentasi */
     }
 
     .logo-container {
@@ -106,12 +116,24 @@ footer .social-links a:hover {
     }
 
     .social-links {
-        flex-direction: column;
-        gap: 0.5rem;
+        flex-direction: row; /* Menyamping di Android */
+        gap: 1rem;
+        justify-content: center;
     }
 
     .social-links a {
         font-size: 0.875rem;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .social-links a span {
+        display: none; /* Hanya tampilkan ikon */
+    }
+
+    .social-links a i {
+        font-size: 1.25rem;
     }
 
     img {
