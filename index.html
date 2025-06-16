@@ -11,56 +11,62 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-white font-sans">
-    <header class="bg-gray-800 text-white shadow-lg sticky top-0 z-50">
+<body class="bg-white font-sans transition-colors duration-300" id="body">
+    <header class="bg-gray-800 text-white shadow-lg sticky top-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="logo-container flex flex-col items-start">
                     <a href="index.html" class="logo text-2xl">Altair's Personal Page</a>
                     <div class="time-display text-sm mt-1" id="timeDisplay"></div>
                 </div>
-                <button class="menu-toggle md:hidden focus:outline-none" aria-label="Toggle navigation" aria-expanded="false">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-                <div class="menu hidden md:flex md:items-center md:gap-8">
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="focus:outline-none" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon text-xl"></i>
+                    </button>
+                    <button class="menu-toggle md:hidden focus:outline-none" aria-label="Toggle navigation" aria-expanded="false">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                <div class="menu hidden md:flex md:items-center md:gap-8" id="menu">
                     <ul class="flex flex-col md:flex-row gap-6">
-                        <li><a href="index.html" class="hover:text-indigo-300 transition">Home</a></li>
-                        <li><a href="astronomy.html" class="hover:text-indigo-300 transition">Astronomi</a></li>
-                        <li><a href="meteorologi.html" class="hover:text-indigo-300 transition">Meteorologi</a></li>
-                        <li><a href="random.html" class="hover:text-indigo-300 transition">Random</a></li>
+                        <li><a href="index.html" class="hover:text-indigo-300 transition smooth-scroll menu-item">Home</a></li>
+                        <li><a href="astronomy.html" class="hover:text-indigo-300 transition smooth-scroll menu-item">Astronomi</a></li>
+                        <li><a href="meteorologi.html" class="hover:text-indigo-300 transition smooth-scroll menu-item">Meteorologi</a></li>
+                        <li><a href="random.html" class="hover:text-indigo-300 transition smooth-scroll menu-item">Random</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <main class="container mx-auto px-4 py-8">
-        <section id="home" class="text-center">
-            <img src="gif.gif" alt="Astronomi animation" class="mx-auto w-[300px] h-[300px] rounded-lg shadow-md mb-4">
+    <main class="container mx-auto px-4 py-8 relative overflow-hidden">
+        <div class="bg-animation"></div>
+        <section id="home" class="text-center relative z-10">
+            <img src="gif.gif" alt="Astronomi animation" class="mx-auto w-[300px] h-[300px] rounded-lg shadow-md mb-4 transition-transform duration-300 hover:scale-105 hover:rotate-3">
             <div class="julian-date text-sm mb-4" id="julianDate"></div>
             <div class="kolom">
-                <p class="deskripsi text-2xl font-bold text-indigo-600 mb-2">"Somewhere, Something Incredible is Waiting to be Known"</p>
+                <p class="deskripsi text-2xl font-bold text-indigo-600 mb-2" id="typedQuote">"Somewhere, Something Incredible is Waiting to be Known"</p>
                 <h2 class="text-lg text-gray-700 mb-4">Carl Sagan</h2>
                 <p class="text-gray-600 leading-relaxed text-justify mx-auto max-w-2xl">Hello, I’m Praza, an Atmospheric and Planetary Sciences grad with a big interest in creating N-Body simulations, modeling the trajectories or orbits of small solar system bodies, analyzing their orbital evolution and dynamics, and studying exoplanet systems. This website contains my coursework as a student and a few other small astronomy-related topics (also botany :>).</p>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-6">
+    <footer class="bg-gray-800 text-white py-6 transition-all duration-300">
         <div class="container mx-auto px-4 text-center">
             <div class="footer-content">
                 <p class="mb-4">© 2025 Praza Kembaren. All Rights Reserved.</p>
                 <div class="social-links flex justify-center gap-4 flex-wrap">
-                    <a href="https://www.linkedin.com/in/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
+                    <a href="https://www.linkedin.com/in/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
                         <i class="fab fa-linkedin"></i><span>LinkedIn</span>
                     </a>
-                    <a href="https://facebook.com/praza.kembaren" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
+                    <a href="https://facebook.com/praza.kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
                         <i class="fab fa-facebook"></i><span>Facebook</span>
                     </a>
-                    <a href="https://www.instagram.com/prazakembaren/" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
+                    <a href="https://www.instagram.com/prazakembaren/" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
                         <i class="fab fa-instagram"></i><span>Instagram</span>
                     </a>
-                    <a href="https://github.com/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
+                    <a href="https://github.com/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
                         <i class="fab fa-github"></i><span>GitHub</span>
                     </a>
                 </div>
@@ -69,16 +75,63 @@
     </footer>
 
     <script>
-        // Toggle mobile menu
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.smooth-scroll').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Toggle mobile menu with slide-in animation
         const menuToggle = document.querySelector('.menu-toggle');
         const menu = document.querySelector('.menu');
         menuToggle.addEventListener('click', () => {
             menu.classList.toggle('hidden');
+            menu.classList.toggle('slide-in');
             const isExpanded = !menu.classList.contains('hidden');
             menuToggle.setAttribute('aria-expanded', isExpanded);
             menuToggle.querySelector('i').classList.toggle('fa-bars');
             menuToggle.querySelector('i').classList.toggle('fa-times');
         });
+
+        // Dark mode toggle
+        const themeToggle = document.querySelector('#themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            themeToggle.querySelector('i').classList.toggle('fa-moon', !isDark);
+            themeToggle.querySelector('i').classList.toggle('fa-sun', isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // Typing animation for quote
+        const quote = document.getElementById('typedQuote');
+        const quoteText = quote.textContent;
+        quote.textContent = '';
+        let i = 0;
+        function typeWriter() {
+            if (i < quoteText.length) {
+                quote.textContent += quoteText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            } else {
+                setTimeout(() => {
+                    quote.textContent = '';
+                    i = 0;
+                    typeWriter();
+                }, 3000);
+            }
+        }
+        typeWriter();
 
         // Update time display
         function updateTime() {
