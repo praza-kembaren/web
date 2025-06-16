@@ -2,44 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello, Altair Here....</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Praza Kembaren</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <nav>
-        <div class="wrapper">
-            <div class="logo">
-                <a href="">Altair's Personal Page</a>
+<body class="bg-white font-sans">
+    <header class="bg-gradient-to-r from-indigo-900 to-blue-900 text-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="logo-container flex flex-col items-start">
+                <a href="/" class="logo text-2xl font-bold">Altair's Personal Page</a>
+                <div class="time-display text-sm mt-1" id="timeDisplay"></div>
             </div>
-            <div class="menu">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="astronomy.html">Astronomi</a></li>
-                    <li><a href="meteorologi.html">Meteorologi</a></li>
-                    <li><a href="meteorologi.html">Random</a></li>
+            <div class="julian-date text-sm hidden md:block" id="julianDate"></div>
+            <button class="menu-toggle md:hidden focus:outline-none" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            <div class="menu hidden md:flex md:items-center md:gap-6">
+                <ul class="flex flex-col md:flex-row gap-4">
+                    <li><a href="index.html" class="hover:text-indigo-300 transition">Home</a></li>
+                    <li><a href="astronomy.html" class="hover:text-indigo-300 transition">Astronomi</a></li>
+                    <li><a href="meteorologi.html" class="hover:text-indigo-300 transition">Meteorologi</a></li>
+                    <li><a href="random.html" class="hover:text-indigo-300 transition">Random</a></li>
                 </ul>
             </div>
-        </div>
-        <div class="time-display" id="timeDisplay"></div>
-    </nav>
-    
+        </nav>
+    </header>
 
-    <div class="wrapper">
-        <section id="home">
-            <img src="gif.gif" alt="Astronomi gif" style="width:300px;height:300px;">
+    <main class="container mx-auto px-4 py-8">
+        <section id="home" class="text-center">
+            <img src="gif.gif" alt="Astronomi animation" class="mx-auto w-[300px] h-[300px] rounded-lg shadow-md mb-4">
             <div class="kolom">
-                <p class="deskripsi">Somewhere, Something Incredible is Waiting to be Known</p>
-                <h2>Carl Sagan</h2>
-                <p class="justify">Hello, I’m Praza, an Atmospheric and Planetary Sciences grad with a big interest in creating N-Body simulations, modeling the trajectories or orbits of small solar system bodies, analyzing their orbital evolution and dynamics, and studying exoplanet systems. This website contains my coursework as a student and a few other small astronomy-related topics (also botany :>).</p>
+                <p class="deskripsi text-2xl font-bold text-indigo-600 mb-2">"Somewhere, Something Incredible is Waiting to be Known"</p>
+                <h2 class="text-lg text-gray-700 mb-4">Carl Sagan</h2>
+                <p class="text-gray-600 leading-relaxed text-justify mx-auto max-w-2xl">Hello, I’m Praza, an Atmospheric and Planetary Sciences grad with a big interest in creating N-Body simulations, modeling the trajectories or orbits of small solar system bodies, analyzing their orbital evolution and dynamics, and studying exoplanet systems. This website contains my coursework as a student and a few other small astronomy-related topics (also botany :>).</p>
             </div>
         </section>
-    </div>
-      
- 
-    <!-- Tambahkan JavaScript di sini -->
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <div class="footer-content">
+                <p class="mb-4">© 2025 Praza Kembaren. All Rights Reserved.</p>
+                <div class="social-links flex justify-center gap-4 flex-wrap">
+                    <a href="https://www.linkedin.com/in/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://facebook.com/praza.kembaren" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                    <a href="https://www.instagram.com/prazakembaren/" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://github.com/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-2">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
+        // Toggle mobile menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            const isExpanded = !menu.classList.contains('hidden');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
         // Update time display
         function updateTime() {
             const now = new Date();
@@ -49,23 +87,17 @@
             document.getElementById('timeDisplay').textContent = `${date}, ${time} WIB (UTC+7)`;
         }
 
-        // Initialize and update time every second
+        // Calculate and update Julian Date
+        function updateJulianDate() {
+            const now = new Date();
+            const JD = (now.getTime() / 86400000) + 2440587.5;
+            document.getElementById('julianDate').textContent = `Julian Date: ${JD.toFixed(5)}`;
+        }
+
         updateTime();
+        updateJulianDate();
         setInterval(updateTime, 1000);
+        setInterval(updateJulianDate, 1000);
     </script>
 </body>
-
-<footer>
-    <div class="wrapper">
-        <div class="footer-content">
-            <p>&copy; 2025 Praza Kembaren. All Rights Reserved.</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/praza-kembaren" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> |
-                <a href="https://facebook.com/praza.kembaren" target="_blank"><i class="fab fa-facebook"></i> Facebook</a> |
-                <a href="https://www.instagram.com/prazakembaren/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
-                <a href="https://github.com/praza-kembaren" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            </div>
-        </div>
-    </div>
-</footer>
 </html>
