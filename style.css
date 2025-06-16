@@ -1,7 +1,7 @@
 /* Custom styles to complement Tailwind CSS */
 body {
     margin: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Arial', sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -13,15 +13,24 @@ header {
 }
 
 .logo {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Arial', sans-serif;
+    font-weight: normal; /* Tidak tebal */
 }
 
 .menu {
     transition: all 0.3s ease;
 }
 
+.menu ul {
+    display: flex;
+    gap: 1.5rem; /* Jarak antar item menu */
+}
+
 .menu ul li a {
     position: relative;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Arial', sans-serif;
+    font-size: 1rem;
+    font-weight: normal; /* Tidak tebal */
 }
 
 .menu ul li a::after {
@@ -52,20 +61,17 @@ img:hover {
     background: transparent !important;
     padding: 0;
     border: none;
-}
-
-.datetime-container {
-    /* Pastikan waktu dan JD sejajar pada sumbu Y */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0.5rem; /* Dorong JD lebih ke bawah */
+    box-shadow: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Arial', sans-serif;
+    font-size: 0.875rem;
+    font-weight: normal; /* Tidak tebal */
 }
 
 .julian-date {
-    /* Posisikan JD di sisi kanan */
-    text-align: right;
-    margin-top: 0.25rem; /* Tambahan untuk memastikan lebih ke bawah */
+    /* Posisikan JD di tengah bawah GIF */
+    text-align: center;
+    margin: 0 auto;
+    display: block;
 }
 
 footer {
@@ -74,6 +80,8 @@ footer {
 
 footer .social-links a {
     transition: transform 0.3s ease;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Arial', sans-serif;
+    font-weight: normal; /* Tidak tebal */
 }
 
 footer .social-links a:hover {
@@ -84,10 +92,10 @@ footer .social-links a:hover {
 @media (max-width: 768px) {
     .menu {
         position: absolute;
-        top: 100px;
+        top: 80px; /* Dekat dengan header */
         left: 0;
         width: 100%;
-        background: #1F2937; /* Sesuaikan dengan header */
+        background: #1F2937;
         padding: 1rem;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
@@ -95,14 +103,11 @@ footer .social-links a:hover {
     .menu ul {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
     }
 
     .menu ul li {
         margin: 0.5rem 0;
-    }
-
-    .julian-date {
-        display: none;
     }
 
     .time-display {
@@ -113,10 +118,6 @@ footer .social-links a:hover {
 
     .logo-container {
         max-width: 70%;
-    }
-
-    .datetime-container {
-        display: none; /* Sembunyikan datetime-container di mobile */
     }
 }
 
@@ -153,6 +154,10 @@ footer .social-links a:hover {
     img {
         width: 250px;
         height: 250px;
+    }
+
+    .julian-date {
+        font-size: 0.75rem; /* Sesuaikan ukuran untuk mobile */
     }
 }
 
