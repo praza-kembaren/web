@@ -65,7 +65,7 @@ img:hover {
 .julian-date {
     /* Posisikan JD di sisi kanan */
     text-align: right;
-    margin-top: 0.25rem; /* Tambahan untuk memastikan lebih ke bawah */
+    margin-top: 0.15rem; /* Tambahan untuk memastikan lebih ke bawah */
 }
 
 footer {
