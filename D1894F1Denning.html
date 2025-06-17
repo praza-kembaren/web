@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comet D/1894 F1 Denning</title>
+    <!-- Tailwind CSS CDN untuk konsistensi dengan index.html -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN untuk ikon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -123,86 +129,151 @@
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Kembalinya Long-Lost Comet D/1894 F1 (Denning)?</h1>
-        <div class="navbar" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div class="menu" id="menu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="astronomy.html">Astronomi</a></li>
-                <li><a href="#meteorology">Meteorologi</a></li>
-                <li><a href="#random">Random</a></li>
-            </ul>
-        </div>
+<body class="bg-white font-sans transition-colors duration-300" id="body">
+    <header class="bg-gray-800 text-white shadow-lg sticky top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo-container flex flex-col items-start">
+                    <a href="index.html" class="logo text-2xl hover:text-indigo-300 transition">Altair's Personal Page</a>
+                    <div class="time-display text-sm mt-1" id="timeDisplay"></div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="focus:outline-none" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon text-xl"></i>
+                    </button>
+                    <button class="menu-toggle md:hidden focus:outline-none" aria-label="Toggle navigation" aria-expanded="false">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                <div class="menu hidden md:flex md:items-center md:gap-8" id="menu">
+                    <ul class="flex flex-col md:flex-row gap-6">
+                        <li><a href="index.html" class="hover:text-indigo-300 transition menu-item">Home</a></li>
+                        <li><a href="astronomy.html" class="hover:text-indigo-300 transition menu-item">Astronomi</a></li>
+                        <li><a href="meteorologi.html" class="hover:text-indigo-300 transition menu-item">Meteorologi</a></li>
+                        <li><a href="random.html" class="hover:text-indigo-300 transition menu-item">Random</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
-        <section>
-            <h2>------------------------</h2>
-            <p>
-                2 Agustus 2024, Telegram elektronik dari Central Bureau for Astronomical Telegrams, bernomor 5425,
-                M. Meyer (Limburg, Jerman) mengidentifikasi adanya "kesamaan orbit" antara komet D/1894 F1 (Denning) 
-                dengan asteorid pelintas-Mars 2007 HE4. Hal ini ia dapati dari Integrasi orbit yang ia lakukan 
-                (dengan waktu simulasi maju dan simulasi mundur). Hasilnya, orbit 2007 HE4 menunjukkan kesamaan 
-                dengan orbit D/1894 F1 (Denning) yang diprediksi oleh S. Nakano. Ia menduga bahwa Komet ini pecah 
-                ketika ditemukan oleh Denning pada 1894 (saat itu komet Denning berjarak sekitar 0.4 sa dari Bumi).
-            </p>
-            
-            <p>
-                Saat saya mendapati pesan telegram tersebut, orbit dua objek ini masih terpisah (karena masih diyakini 
-                sebagai objek yang berbeda). Beruntungnya, saya berkesempatan melakukan integrasi orbit untuk dua 
-                objek ini. Menggunakan modul REBOUND, melibatkan kedelapan planet serta Bulan, simulasi ini dilakukan 
-                dalam waktu mundur selama 200 tahun setelah epos (simulasi hanya dilakukan dalam waktu mundur bertujuan 
-                untuk melihat evolusi orbitnya).
-            </p>
-    
-            <img src="orb.png" alt="Orbit Simulation">
-    
-            <p> Lintasan orbit Komet Denning ditunjukkan dengan warna ungu,
-                sedangkan orbit Asteroid 2007 HE4 berwarna hijau. Sekilas orbit keduanya
-                tidak jauh berbeda terlebih dari segi eksentrisitasnya. Selain itu, orbit Komet 
-                Denning cenderung tidak stabil jika dibandingkan dengan Asteroid 2007 HE4. Namun dari
-                visual ini saja rasanya kurang, mari cek dinamika elemen orbitnya.
-            </p>
-    
-            <img src="eorb.png" alt="Orbit Simulation">
-    
-            <p>
-                Hasilnya cukup menarik bukan? Elemen orbit keduanya identik. Grafik berwarna 
-                hijau merupakan Asteroid 2007 HE4, biru merupakan Komet Denning, dan oranye
-                merupakan rerata keduanya (hanya iseng saja). Orbit Komet Denning
-                mengalami "perubahan" pada sekitar tahun integrasi -100 (1924) dan tahun -35 an (1989).
-                Nah, dari informasi Telegram tadi, Komet ini berpapasan dekat dengan Jupiter pada
-                18 Juni 1925 pada jarak 0.24 sa dan pada 8 November 1986 (jarak 0.19 sa).
-            </p>
-    
-            <h4>
-                Kini Komet tersebut telah "dirubah namanya" menjadi Komet 489P/Denning [sesuai aturan penamaan komet, dari komet hilang (D/) menjadi
-                komet periodik (P/)] .
-            </h4>
-    
-            <h2>
-                Lampiran
-            </h2>
-    
-            <img src="image.png" alt="Orbit Simulation">
+    <main class="container mx-auto px-4 py-8 relative overflow-hidden">
+        <div class="bg-animation"></div>
+        <section class="relative z-10">
+            <h2 class="text-2xl font-bold text-indigo-600 text-center mb-6">Kembalinya Long-Lost Comet D/1894 F1 (Denning)?</h2>
+            <div class="content-card mb-6">
+                <p class="text-gray-600 leading-relaxed text-justify">
+                    2 Agustus 2024, Telegram elektronik dari Central Bureau for Astronomical Telegrams, bernomor 5425,
+                    M. Meyer (Limburg, Jerman) mengidentifikasi adanya "kesamaan orbit" antara komet D/1894 F1 (Denning) 
+                    dengan asteorid pelintas-Mars 2007 HE4. Hal ini ia dapati dari Integrasi orbit yang ia lakukan 
+                    (dengan waktu simulasi maju dan simulasi mundur). Hasilnya, orbit 2007 HE4 menunjukkan kesamaan 
+                    dengan orbit D/1894 F1 (Denning) yang diprediksi oleh S. Nakano. Ia menduga bahwa Komet ini pecah 
+                    ketika ditemukan oleh Denning pada 1894 (saat itu komet Denning berjarak sekitar 0.4 sa dari Bumi).
+                </p>
+            </div>
+            <div class="content-card mb-6">
+                <p class="text-gray-600 leading-relaxed text-justify">
+                    Saat saya mendapati pesan telegram tersebut, orbit dua objek ini masih terpisah (karena masih diyakini 
+                    sebagai objek yang berbeda). Beruntungnya, saya berkesempatan melakukan integrasi orbit untuk dua 
+                    objek ini. Menggunakan modul REBOUND, melibatkan kedelapan planet serta Bulan, simulasi ini dilakukan 
+                    dalam waktu mundur selama 200 tahun setelah epos (simulasi hanya dilakukan dalam waktu mundur bertujuan 
+                    untuk melihat evolusi orbitnya).
+                </p>
+            </div>
+            <div class="content-card mb-6">
+                <img src="orb.png" alt="Orbit Simulation" class="content-image">
+                <p class="text-gray-600 leading-relaxed text-justify">
+                    Lintasan orbit Komet Denning ditunjukkan dengan warna ungu, sedangkan orbit Asteroid 2007 HE4 berwarna hijau. 
+                    Sekilas orbit keduanya tidak jauh berbeda terlebih dari segi eksentrisitasnya. Selain itu, orbit Komet 
+                    Denning cenderung tidak stabil jika dibandingkan dengan Asteroid 2007 HE4. Namun dari visual ini saja 
+                    rasanya kurang, mari cek dinamika elemen orbitnya.
+                </p>
+            </div>
+            <div class="content-card mb-6">
+                <img src="eorb.png" alt="Orbit Simulation" class="content-image">
+                <p class="text-gray-600 leading-relaxed text-justify">
+                    Hasilnya cukup menarik bukan? Elemen orbit keduanya identik. Grafik berwarna hijau merupakan Asteroid 2007 HE4, 
+                    biru merupakan Komet Denning, dan oranye merupakan rerata keduanya (hanya iseng saja). Orbit Komet Denning
+                    mengalami "perubahan" pada sekitar tahun integrasi -100 (1924) dan tahun -35 an (1989).
+                    Nah, dari informasi Telegram tadi, Komet ini berpapasan dekat dengan Jupiter pada
+                    18 Juni 1925 pada jarak 0.24 sa dan pada 8 November 1986 (jarak 0.19 sa).
+                </p>
+            </div>
+            <div class="content-card mb-6">
+                <h4 class="text-lg font-bold text-gray-700">
+                    Kini Komet tersebut telah "dirubah namanya" menjadi Komet 489P/Denning [sesuai aturan penamaan komet, 
+                    dari komet hilang (D/) menjadi komet periodik (P/)].
+                </h4>
+            </div>
+            <div class="content-card mb-6">
+                <h2 class="text-xl font-bold text-gray-700 text-center">Lampiran</h2>
+                <img src="image.png" alt="Orbit Simulation" class="content-image">
+            </div>
         </section>
-    
-    
-        <footer>
-            <p>&copy; 2025 Praza Kembaren. Ad Astra Per Aspera.</p>
-        </footer>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 transition-all duration-300">
+        <div class="container mx-auto px-4 text-center">
+            <div class="footer-content">
+                <div class="social-links flex justify-center gap-4 flex-wrap">
+                    <a href="https://www.linkedin.com/in/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+                    </a>
+                    <a href="https://facebook.com/praza.kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-facebook"></i><span>Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/prazakembaren/" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-instagram"></i><span>Instagram</span>
+                    </a>
+                    <a href="https://github.com/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-github"></i><span>GitHub</span>
+                    </a>
+                </div>
+                <p>© 2025 Praza Kembaren. Ad Astra Per Aspera.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        // Toggle mobile menu with slide-in animation
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('slide-in');
+            const isExpanded = !menu.classList.contains('hidden');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Dark mode toggle
+        const themeToggle = document.querySelector('#themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            themeToggle.querySelector('i').classList.toggle('fa-moon', !isDark);
+            themeToggle.querySelector('i').classList.toggle('fa-sun', isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
         }
+
+        // Update time display
+        function updateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const date = now.toLocaleDateString('id', options);
+            const time = now.toLocaleTimeString('en-US', { hour12: false });
+            document.getElementById('timeDisplay').textContent = `${date}, ${time} WIB (UTC+7)`;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
     </script>
 </body>
 </html>
-
