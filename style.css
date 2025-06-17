@@ -240,3 +240,110 @@ footer .social-links a:hover {
         padding-right: 1rem;
     }
 }
+
+/* Ensure hamburger menu is visible and clickable */
+.menu-toggle {
+    display: none; /* Hidden by default for desktop */
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's above other elements */
+    position: relative;
+    width: 30px;
+    height: 20px;
+}
+
+/* Hamburger icon styles */
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #e2e8f0; /* Light color for visibility */
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle span:nth-child(1) {
+    top: 0;
+}
+
+.menu-toggle span:nth-child(2) {
+    top: 8px;
+}
+
+.menu-toggle span:nth-child(3) {
+    top: 16px;
+}
+
+/* Responsive styles for mobile and split-screen */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show hamburger icon on mobile */
+        position: absolute;
+        top: 25px;
+        right: 1rem;
+    }
+
+    .menu {
+        position: fixed; /* Use fixed to ensure it stays in view */
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #1F2937;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        z-index: 999; /* Ensure menu is above other content */
+    }
+
+    .menu.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .menu ul li {
+        margin: 0.5rem 0;
+    }
+
+    .menu ul li a.menu-item {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+
+    .menu ul li a.menu-item::after {
+        height: 2px;
+        bottom: 0;
+    }
+}
+
+/* Ensure proper behavior in split-screen and standalone modes */
+@media (max-width: 1024px) and (display-mode: standalone) {
+    .menu-toggle {
+        display: block; /* Ensure hamburger icon is visible */
+        position: absolute;
+        top: 25px;
+        right: 1rem;
+    }
+
+    .menu {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+    }
+
+    .menu.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
