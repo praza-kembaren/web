@@ -357,3 +357,63 @@ footer .social-links a:hover {
         opacity: 1;
     }
 }
+
+
+
+
+/* Astronomy page specific styles -----------------------------------------------------------------------------------------------------------------------------*/
+#astronomy .post-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+#astronomy .post-card {
+    background: #ffffff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#astronomy .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+#astronomy .post-image {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+}
+
+#astronomy .post-description {
+    color: #4b5563;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+#astronomy .post-card a:not(.post-description) {
+    color: #4f46e5;
+    font-weight: 500;
+}
+
+#astronomy .post-card a:not(.post-description):hover {
+    color: #4338ca;
+}
+
+body.dark-mode #astronomy .post-card {
+    background: #2d3748;
+}
+
+body.dark-mode #astronomy .post-description {
+    color: #d1d5db;
+}
+
+body.dark-mode #astronomy .post-card a:not(.post-description) {
+    color: #7f9cf5;
+}
+
+body.dark-mode #astronomy .post-card a:not(.post-description):hover {
+    color: #a5b4fc;
+}
