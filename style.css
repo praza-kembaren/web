@@ -252,10 +252,19 @@ footer .social-links a:hover {
 }
 
 /* Ensure hamburger menu is visible and clickable */
+/* Ensure dark mode toggle and hamburger menu are positioned correctly */
+#themeToggle {
+    display: block;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it’s above other elements */
+    position: relative;
+}
+
+/* Ensure hamburger menu is styled correctly */
 .menu-toggle {
     display: none; /* Hidden by default for desktop */
     cursor: pointer;
-    z-index: 1000; /* Ensure it's above other elements */
+    z-index: 1000; /* Ensure it’s above other elements */
     position: relative;
     width: 30px;
     height: 20px;
@@ -287,12 +296,27 @@ footer .social-links a:hover {
 /* Responsive styles for mobile and split-screen */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block; /* Show hamburger icon on mobile */
+        display: block; /* Show hamburger icon */
         position: absolute;
         top: 25px;
-        right: 1rem;
+        right: 1rem; /* Positioned on the right */
+        width: 30px;
+        height: 20px;
+    }
+    #themeToggle {
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 3rem; /* Positioned to the left of .menu-toggle */
+        width: 30px;
+        height: 20px;
+        padding: 0;
     }
 
+    #themeToggle i {
+        font-size: 1.25rem; /* Adjust icon size for better visibility */
+        color: #e2e8f0; /* Light color for visibility */
+    }
     .menu {
         position: fixed; /* Use fixed to ensure it stays in view */
         top: 80px;
@@ -305,6 +329,11 @@ footer .social-links a:hover {
         opacity: 0;
         transition: transform 0.3s ease, opacity 0.3s ease;
         z-index: 999; /* Ensure menu is above other content */
+    }
+
+    .menu-toggle i {
+        font-size: 1.5rem; /* Slightly larger for hamburger icon */
+        color: #e2e8f0;
     }
 
     .menu.active {
@@ -344,6 +373,14 @@ footer .social-links a:hover {
         right: 1rem;
     }
 
+    #themeToggle {
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 3rem; /* Keep same positioning as mobile */
+        width: 30px;
+        height: 20px;
+    }
     .menu {
         position: fixed;
         top: 80px;
