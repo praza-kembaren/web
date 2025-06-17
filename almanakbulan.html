@@ -50,6 +50,22 @@
         .content-card h4 {
             color: #333;
         }
+        
+        /* Gaya teks monospaced */
+        .mono-text {
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            font-size: 0.875rem;
+            white-space: pre;
+            background: #f4f4f9;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        body.dark-mode .mono-text {
+            background: #1a202c;
+            color: #e2e8f0;
+        }
 
         body.dark-mode .content-card h2,
         body.dark-mode .content-card h4 {
@@ -196,6 +212,9 @@
         </nav>
     </header>
 
+
+
+    
     <main class="container mx-auto px-4 py-8 relative overflow-hidden">
         <!-- Background statis untuk performa -->
         <div class="bg-animation"></div>
@@ -210,41 +229,58 @@
                 data lainnya.
             </p>
             <!-- Konten artikel dalam kartu -->
+            <!-- 2025–2500 -->
             <div class="content-card">
-                <!-- Subjudul (opsional) -->
-                <h4 class="text-lg font-bold text-gray-700 mb-4">Jarak Minimum dan Maksimum Bulan dari Bumi</h4>
-                <!-- Paragraf teks -->
-                <p class="text-gray-600 leading-relaxed text-center mb-4">
-                    Extreme Moon Distances (2025–2500)
-                           Event        	          Time           	Distance 
-                       Lowest Perigee   	2257-01-01 12:54:57 +0000	356371 km
-                       Highest Apogee   	2266-01-07 07:32:23 +0000	406721 km
-                    
-                    Extreme Moon Distances (2025–2125)
-                           Event        	          Time           	Distance 
-                       Lowest Perigee   	2116-01-29 17:38:43 +0000	356403 km
-                       Highest Apogee   	2107-01-23 19:00:49 +0000	406713 km
-                    
-                    Extreme Moon Distances (2125–2225)
-                           Event        	          Time           	Distance 
-                       Lowest Perigee   	2134-02-09 04:26:59 +0000	356416 km
-                       Highest Apogee   	2125-02-03 09:20:53 +0000	406719 km
-                    
-                    Extreme Moon Distances (2225–2325)
-                           Event        	          Time           	Distance 
-                       Lowest Perigee   	2257-01-01 12:54:57 +0000	356371 km
-                       Highest Apogee   	2266-01-07 07:32:22 +0000	406721 km
-                    
-                    Extreme Moon Distances (2325–2425)
-                           Event        	          Time           	Distance 
-                       Lowest Perigee   	2397-12-05 08:16:55 +0000	356425 km
-                       Highest Apogee   	2406-12-11 05:39:14 +0000	406720 km
-                    
-                    Extreme Moon Distances (2425–2500)
-                           Event        	          Time           	Distance 
-                       Lowest Perigee   	2479-02-07 03:38:07 +0000	356404 km
-                       Highest Apogee   	2470-02-01 07:07:32 +0000	406713 km
-                <!-- Contoh daftar -->
+                <h4 class="text-lg font-bold text-gray-700 mb-4">2025–2500</h4>
+                <pre class="mono-text">Event           Time                       Distance
+Lowest Perigee  2257-01-01 12:54:57 +0000  356371 km
+Highest Apogee  2266-01-07 07:32:23 +0000  406721 km</pre>
+            </div>
+
+            <!-- 2025–2125 -->
+            <div class="content-card">
+                <h4 class="text-lg font-bold text-gray-700 mb-4">2025–2125</h4>
+                <pre class="mono-text">Event           Time                       Distance
+Lowest Perigee  2116-01-29 17:38:43 +0000  356403 km
+Highest Apogee  2107-01-23 19:00:49 +0000  406713 km</pre>
+            </div>
+
+            <!-- 2125–2225 -->
+            <div class="content-card">
+                <h4 class="text-lg font-bold text-gray-700 mb-4">2125–2225</h4>
+                <pre class="mono-text">Event           Time                       Distance
+Lowest Perigee  2134-02-09 04:26:59 +0000  356416 km
+Highest Apogee  2125-02-03 09:20:53 +0000  406719 km</pre>
+            </div>
+
+            <!-- 2225–2325 -->
+            <div class="content-card">
+                <h4 class="text-lg font-bold text-gray-700 mb-4">2225–2325</h4>
+                <pre class="mono-text">Event           Time                       Distance
+Lowest Perigee  2257-01-01 12:54:57 +0000  356371 km
+Highest Apogee  2266-01-07 07:32:22 +0000  406721 km</pre>
+            </div>
+
+            <!-- 2325–2425 -->
+            <div class="content-card">
+                <h4 class="text-lg font-bold text-gray-700 mb-4">2325–2425</h4>
+                <pre class="mono-text">Event           Time                       Distance
+Lowest Perigee  2397-12-05 08:16:55 +0000  356425 km
+Highest Apogee  2406-12-11 05:39:14 +0000  406720 km</pre>
+            </div>
+
+            <!-- 2425–2500 -->
+            <div class="content-card">
+                <h4 class="text-lg font-bold text-gray-700 mb-4">2425–2500</h4>
+                <pre class="mono-text">Event           Time                       Distance
+Lowest Perigee  2479-02-07 03:38:07 +0000  356404 km
+Highest Apogee  2470-02-01 [Incomplete]    [Incomplete]</pre>
+                <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                    Note: Data for the highest apogee in the 2425–2500 range is incomplete. Further calculations are needed.
+                </p>
+            </div>
+        </section>
+    </main>
                 <ul class="list-disc pl-6 mb-4 text-gray-600">
                     <li>[Poin 1]</li>
                     <li>[Poin 2]</li>
