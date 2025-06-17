@@ -1,18 +1,380 @@
-@media (max-width: 768px) {
-    .menu {
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: #2d3748;
-        padding: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transform: translateY(-100%);
-        opacity: 0;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .menu:not(.hidden) {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAS Mata Kuliah Eksoplanet [Pembahasan No.4-5]</title>
+    <!-- Tailwind CSS CDN untuk konsistensi dengan index.html -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN untuk ikon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- MathJax CDN untuk merender persamaan LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Override conflicting styles */
+        .navbar {
+            display: none; /* Sembunyikan navbar lama yang tidak digunakan */
+        }
+
+        /* Background animation konsisten dengan index.html */
+        .bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(79, 70, 229, 0.1), rgba(147, 197, 253, 0.1));
+            animation: gradientShift 10s ease infinite;
+            z-index: 0;
+        }
+
+        /* Konten utama */
+        .content-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-mode .content-card {
+            background: #2d3748;
+            color: #e2e8f0;
+            border-color: #4a5568;
+        }
+
+        .content-card h2,
+        .content-card h4 {
+            color: #333;
+        }
+
+        body.dark-mode .content-card h2,
+        body.dark-mode .content-card h4 {
+            color: #e2e8f0;
+        }
+
+        /* Gaya tabel */
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .content-table {
+            background: #2d3748;
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        body.dark-mode .content-table th,
+        body.dark-mode .content-table td {
+            border-bottom: 1px solid #4a5568;
+            color: #e2e8f0;
+        }
+
+        .content-table th {
+            background: #f4f4f9;
+            font-weight: bold;
+            color: #333;
+        }
+
+        body.dark-mode .content-table th {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+
+        /* Gaya persamaan LaTeX */
+        .mathjax-container {
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        /* Responsive styles untuk menu */
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 1rem;
+            }
+
+            .content-table {
+                font-size: 0.875rem;
+            }
+
+            .menu {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: #2d3748;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+
+            .menu:not(.hidden) {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-card {
+                margin: 1rem;
+            }
+
+            .content-table {
+                font-size: 0.75rem;
+            }
+
+            .content-table th,
+            .content-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white font-sans transition-colors duration-300" id="body">
+    <header class="bg-gray-800 text-white shadow-lg sticky top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo-container flex flex-col items-start">
+                    <a href="index.html" class="logo text-2xl hover:text-indigo-300 transition">Altair's Personal Page</a>
+                    <div class="time-display text-sm mt-1" id="timeDisplay"></div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="focus:outline-none" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon text-xl"></i>
+                    </button>
+                    <button class="menu-toggle md:hidden focus:outline-none" aria-label="Toggle navigation" aria-expanded="false">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                <div class="menu hidden md:flex md:items-center md:gap-8" id="menu">
+                    <ul class="flex flex-col md:flex-row gap-6">
+                        <li><a href="index.html" class="hover:text-indigo-300 transition menu-item">Home</a></li>
+                        <li><a href="astronomy.html" class="hover:text-indigo-300 transition menu-item">Astronomi</a></li>
+                        <li><a href="meteorologi.html" class="hover:text-indigo-300 transition menu-item">Meteorologi</a></li>
+                        <li><a href="random.html" class="hover:text-indigo-300 transition menu-item">Random</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 relative overflow-hidden">
+        <div class="bg-animation"></div>
+        <section class="relative z-10">
+            <h2 class="text-2xl font-bold text-indigo-600 text-center mb-6">UAS Mata Kuliah Eksoplanet [Pembahasan No.4-5]</h2>
+            <div class="content-card">
+                <h4 class="text-lg font-bold text-gray-700 mb-4">Soal 4</h4>
+                <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                    Sebuah planet mengorbit bintang identik dengan Matahari pada jarak 1,31 sa. Jika albedo
+                    planet 0,231, perkirakan suhu (Teq) planet ini!
+                </p>
+                <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                    Temperatur planet dapat ditentukan menggunakan persamaan berikut:
+                </p>
+                <div class="mathjax-container">
+                    \[
+                    T_{\text{eq}} = \left( \frac{(1 - A) \, L_{\odot}}{16 \pi \sigma \, d^2} \right)^{\frac{1}{4}}
+                    \]
+                </div>
+                <p class="text-gray-600 leading-relaxed text-justify mb-4">Dengan (2 digit NIM terakhir adalah 31):</p>
+                <ul class="list-disc pl-6 mb-4 text-gray-600">
+                    <li>\(A\): Albedo planet (\(0.231\))</li>
+                    <li>\(L_{\odot}\): Luminositas Matahari (\(3.846 \cdot 10^{26}\; W\))</li>
+                    <li>\(\sigma\): Konstanta Stefan-Boltzmann (\(5.67 \cdot 10^{-8}\; W \cdot m^{-2} \cdot K^{-4}\))</li>
+                    <li>\(d\): Jarak planet dari bintang (\(1.31 \; sa = 1.96 \cdot 10^{11} \; m\))</li>
+                </ul>
+                <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                    Sehingga jika disubstitusikan akan menghasilkan:
+                </p>
+                <div class="mathjax-container">
+                    \[
+                    T_{\text{eq}} = \left( \frac{(1 - 0.231) \, (3.846 \cdot 10^{26})}{16 \pi (5.67 \cdot 10^{-8}) \, (1.96 \cdot 10^{11})^2} \right)^{\frac{1}{4}}
+                    \]
+                    \[
+                    T_{\text{eq}} = \left( \frac{2.9576 \cdot 10^{26}}{1.09488 \cdot 10^{17}} \right)^{\frac{1}{4}} = 227.98 \; K
+                    \]
+                </div>
+            </div>
+            <div class="content-card">
+                <h4 class="text-lg font-bold text-gray-700 mb-4">Soal 5</h4>
+                <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                    Hitung Earth Similarity Index (ESI) untuk planet Venus dan Mars, mana yang lebih mirip?
+                    Hitung ESI untuk satu eksoplanet yang kamu sukai!
+                </p>
+                <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                    Untuk menghitung ESI planet Tata Surya, akan digunakan persamaan berikut:
+                </p>
+                <div class="mathjax-container">
+                    \[
+                    \text{ESI} = \prod^{n}_{i=1} \left( 1 - \bigg|\frac{x_i - x_{io}}{x_i + x_{io}}\bigg| \right)^{\frac{w_i}{n}}
+                    \]
+                </div>
+                <p class="text-gray-600 leading-relaxed text-justify mb-4">Dengan:</p>
+                <ul class="list-disc pl-6 mb-4 text-gray-600">
+                    <li>\(x_i\): Properti planet</li>
+                    <li>\(n\): Jumlah properti planet</li>
+                    <li>\(x_{io}\): Nilai referensi terestrial</li>
+                    <li>\(w_i\): Weight exponent</li>
+                </ul>
+                <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                    Untuk nilai referensi dan weight exponent diperoleh dari 
+                    <a href="https://phl.upr.edu/projects/earth-similarity-index-esi" class="text-indigo-600 hover:underline">sini</a> 
+                    (Eu = Earth's Units)
+                </p>
+                <table class="content-table">
+                    <thead>
+                        <tr>
+                            <th class="text-left">Properti Planet</th>
+                            <th class="text-left">Nilai Referensi</th>
+                            <th class="text-left">Weight Exponent</th>
+                            <th class="text-left">Venus</th>
+                            <th class="text-left">Mars</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Radius rata-rata</td>
+                            <td>1.0 Eu</td>
+                            <td>0.57</td>
+                            <td>0.95</td>
+                            <td>0.532</td>
+                        </tr>
+                        <tr>
+                            <td>Bulk Density (\(\rho\))</td>
+                            <td>1.0 Eu</td>
+                            <td>1.07</td>
+                            <td>0.945</td>
+                            <td>0.709</td>
+                        </tr>
+                        <tr>
+                            <td>Escape Velocity</td>
+                            <td>1.0 Eu</td>
+                            <td>0.70</td>
+                            <td>0.93</td>
+                            <td>0.45</td>
+                        </tr>
+                        <tr>
+                            <td>Surface Temperature</td>
+                            <td>288 K</td>
+                            <td>5.58</td>
+                            <td>737 K</td>
+                            <td>210 K</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                    Sehingga ESI Venus adalah:
+                </p>
+                <div class="mathjax-container">
+                    \[
+                    \text{ESI}_{venus} = \prod^{4}_{i=1} \left( 1 - \bigg|\frac{x_i - x_{io}}{x_i + x_{io}}\bigg| \right)^{\frac{w_i}{4}}
+                    \]
+                    \[
+                    \text{ESI}_{venus} = \left( 1 - \bigg|\frac{0.95 - 1}{0.95 + 1}\bigg| \right)^{\frac{0.57}{4}} \times 
+                    \left( 1 - \bigg|\frac{0.945 - 1}{0.945 + 1}\bigg| \right)^{\frac{1.07}{4}} \times 
+                    \left( 1 - \bigg|\frac{0.93 - 1}{0.93 + 1}\bigg| \right)^{\frac{0.7}{4}} \times 
+                    \left( 1 - \bigg|\frac{737 - 288}{737 + 288}\bigg| \right)^{\frac{5.58}{4}}
+                    \]
+                    \[
+                    \text{ESI}_{venus} = 0.9963 \cdot 0.99235 \cdot 0.993556 \cdot 0.44754 = 0.4396
+                    \]
+                </div>
+                <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                    Dengan cara yang sama, didapati bahwa ESI planet Mars adalah 0.655. Sejatinya 
+                    planet Venus benar-benar mirip dengan Bumi, hanya saja faktor temperatur planet
+                    Venus yang sangat tinggi menyebabkan planet ini sangat "tidak mirip" Bumi.
+                </p>
+                <p class="text-gray-600 leading-relaxed text-justify mb-4">
+                    Untuk eksoplanet akan menyusul...
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 transition-all duration-300">
+        <div class="container mx-auto px-4 text-center">
+            <div class="footer-content">
+                <div class="social-links flex justify-center gap-4 flex-wrap">
+                    <a href="https://www.linkedin.com/in/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+                    </a>
+                    <a href="https://facebook.com/praza.kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-facebook"></i><span>Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/prazakembaren/" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-instagram"></i><span>Instagram</span>
+                    </a>
+                    <a href="https://github.com/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-github"></i><span>GitHub</span>
+                    </a>
+                </div>
+                <p>© 2025 Praza Kembaren. Ad Astra Per Aspera.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu with slide-in animation
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('slide-in');
+            const isExpanded = !menu.classList.contains('hidden');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Dark mode toggle
+        const themeToggle = document.querySelector('#themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            themeToggle.querySelector('i').classList.toggle('fa-moon', !isDark);
+            themeToggle.querySelector('i').classList.toggle('fa-sun', isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // Update time display
+        function updateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const date = now.toLocaleDateString('id', options);
+            const time = now.toLocaleTimeString('en-US', { hour12: false });
+            document.getElementById('timeDisplay').textContent = `${date}, ${time} WIB (UTC+7)`;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
