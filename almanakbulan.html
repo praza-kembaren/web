@@ -28,8 +28,8 @@
 
         section {
             width: 100%;
-            margin: 0 0.5rem; /* Margin horizontal lebih kecil */
-            padding: 0;
+            margin: 0 0.25rem; /* Margin horizontal lebih kecil */
+            padding: 0 0.5rem;
             position: relative;
             z-index: 10;
         }
@@ -56,6 +56,13 @@
             margin: 1rem auto; /* Rata tengah tabel */
             max-width: calc(100% - 1rem); /* Cegah tabel melebihi lebar layar */
             display: inline-block; /* Agar tabel tidak melebar penuh */
+        }
+
+        /* Pastikan paragraf dan list tidak meluap */
+        p, ul {
+            max-width: calc(100% - 1rem); /* Batasi lebar agar tidak terpotong */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         body.dark-mode .mono-text {
@@ -133,13 +140,16 @@
         /* Responsive styles */
         @media (max-width: 768px) {
             section {
-                margin: 0 0.25rem; /* Margin lebih kecil */
-            }
+                    margin: 0 0.15rem; /* Margin lebih kecil */
+                    padding: 0 0.3rem;
+                }
 
             .mono-text {
-            max-width: calc(100% - 0.5rem); /* Sesuaikan max-width */
+            max-width: calc(100% - 0.6rem); /* Sesuaikan max-width */
             }     
-
+            p, ul {
+                    max-width: calc(100% - 0.6rem);
+                }
             .content-image {
                 max-width: 90%;
             }
@@ -158,12 +168,15 @@
         @media (max-width: 480px) {
             section {
                 margin: 0 0.1rem;
+                padding: 0 0.2rem;
             }
 
             .content-image {
                 max-width: 95%;
             }
-
+            p, ul {
+                    max-width: calc(100% - 0.4rem);
+                }
             .content-table {
                 width: 95%;
                 font-size: 0.75rem;
