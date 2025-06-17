@@ -30,6 +30,13 @@
             z-index: 0;
         }
 
+            section {
+            width: 100%;
+            margin: 0 1.5rem; /* Margin horizontal untuk jarak dari tepi */
+            padding: 0; /* Tidak ada padding tambahan */
+            position: relative;
+            z-index: 10;
+        }
 
         .content-card {
     /* Tidak lagi digunakan, hapus semua properti terkait content-card */
@@ -214,9 +221,6 @@
             </div>
         </nav>
     </header>
-
-
-
     
     <main class="w-full py-8 relative overflow-hidden">
         <!-- Background statis untuk performa -->
@@ -231,47 +235,147 @@
                 kita bisa mendapatkan informasi tentang kejadian-kejadian astronomis beserta dengan waktu dan
                 data lainnya.
             </p>
-            <!-- Konten artikel langsung tanpa content-card -->
+            <!-- Konten artikel tanpa content-card -->
             <h3 class="text-lg font-bold text-gray-700 mb-4">Jarak Minimum dan Maksimum Bulan dari Bumi (2025–2500)</h3>
             <p class="text-gray-600 leading-relaxed text-justify mb-4">
                 Di bawah ini merupakan data jarak bulan minimum dan maksimum ekstrem dari Bumi selama rentang
                 tahun 2025-2500. Disajikan juga data jarak maksimum dan minimum per seratus tahun sejak
                 tahun 2025.
             </p>
-            <pre class="mono-text">Event           Time                       Distance
-    Lowest Perigee  2257-01-01 12:54:57 +0000  356371 km
-    Highest Apogee  2266-01-07 07:32:23 +0000  406721 km</pre>
+            <div class="mono-text">
+                <table>
+                    <tr>
+                        <td>Event</td>
+                        <td>Time</td>
+                        <td>Distance</td>
+                    </tr>
+                    <tr>
+                        <td>Lowest Perigee</td>
+                        <td>2257-01-01 12:54:57 +0000</td>
+                        <td>356371 km</td>
+                    </tr>
+                    <tr>
+                        <td>Highest Apogee</td>
+                        <td>2266-01-07 07:32:23 +0000</td>
+                        <td>406721 km</td>
+                    </tr>
+                </table>
+            </div>
     
             <!-- 2025–2125 -->
             <h4 class="text-lg font-bold text-gray-700 mb-4">2025–2125</h4>
-            <pre class="mono-text">Event           Time                       Distance
-    Lowest Perigee  2116-01-29 17:38:43 +0000  356403 km
-    Highest Apogee  2107-01-23 19:00:49 +0000  406713 km</pre>
+            <div class="mono-text">
+                <table>
+                    <tr>
+                        <td>Event</td>
+                        <td>Time</td>
+                        <td>Distance</td>
+                    </tr>
+                    <tr>
+                        <td>Lowest Perigee</td>
+                        <td>2116-01-29 17:38:43 +0000</td>
+                        <td>356403 km</td>
+                    </tr>
+                    <tr>
+                        <td>Highest Apogee</td>
+                        <td>2107-01-23 19:00:49 +0000</td>
+                        <td>406713 km</td>
+                    </tr>
+                </table>
+            </div>
     
+            <!-- 2125–2225 -->
             <h4 class="text-lg font-bold text-gray-700 mb-4">2125–2225</h4>
-            <pre class="mono-text">Event           Time                       Distance
-    Lowest Perigee  2134-02-09 04:26:59 +0000  356416 km
-    Highest Apogee  2125-02-03 09:20:53 +0000  406719 km</pre>
+            <div class="mono-text">
+                <table>
+                    <tr>
+                        <td>Event</td>
+                        <td>Time</td>
+                        <td>Distance</td>
+                    </tr>
+                    <tr>
+                        <td>Lowest Perigee</td>
+                        <td>2134-02-09 04:26:59 +0000</td>
+                        <td>356416 km</td>
+                    </tr>
+                    <tr>
+                        <td>Highest Apogee</td>
+                        <td>2125-02-03 09:20:53 +0000</td>
+                        <td>406719 km</td>
+                    </tr>
+                </table>
+            </div>
     
+            <!-- 2225–2325 -->
             <h4 class="text-lg font-bold text-gray-700 mb-4">2225–2325</h4>
-            <pre class="mono-text">Event           Time                       Distance
-    Lowest Perigee  2257-01-01 12:54:57 +0000  356371 km
-    Highest Apogee  2266-01-07 07:32:22 +0000  406721 km</pre>
+            <div class="mono-text">
+                <table>
+                    <tr>
+                        <td>Event</td>
+                        <td>Time</td>
+                        <td>Distance</td>
+                    </tr>
+                    <tr>
+                        <td>Lowest Perigee</td>
+                        <td>2257-01-01 12:54:57 +0000</td>
+                        <td>356371 km</td>
+                    </tr>
+                    <tr>
+                        <td>Highest Apogee</td>
+                        <td>2266-01-07 07:32:22 +0000</td>
+                        <td>406721 km</td>
+                    </tr>
+                </table>
+            </div>
     
+            <!-- 2325–2425 -->
             <h4 class="text-lg font-bold text-gray-700 mb-4">2325–2425</h4>
-            <pre class="mono-text">Event           Time                       Distance
-    Lowest Perigee  2397-12-05 08:16:55 +0000  356425 km
-    Highest Apogee  2406-12-11 05:39:14 +0000  406720 km</pre>
+            <div class="mono-text">
+                <table>
+                    <tr>
+                        <td>Event</td>
+                        <td>Time</td>
+                        <td>Distance</td>
+                    </tr>
+                    <tr>
+                        <td>Lowest Perigee</td>
+                        <td>2397-12-05 08:16:55 +0000</td>
+                        <td>356425 km</td>
+                    </tr>
+                    <tr>
+                        <td>Highest Apogee</td>
+                        <td>2406-12-11 05:39:14 +0000</td>
+                        <td>406720 km</td>
+                    </tr>
+                </table>
+            </div>
     
+            <!-- 2425–2500 -->
             <h4 class="text-lg font-bold text-gray-700 mb-4">2425–2500</h4>
-            <pre class="mono-text">Event           Time                       Distance
-    Lowest Perigee  2479-02-07 03:38:07 +0000  356404 km
-    Highest Apogee  2470-02-01 [Incomplete]    [Incomplete]</pre>
+            <div class="mono-text">
+                <table>
+                    <tr>
+                        <td>Event</td>
+                        <td>Time</td>
+                        <td>Distance</td>
+                    </tr>
+                    <tr>
+                        <td>Lowest Perigee</td>
+                        <td>2479-02-07 03:38:07 +0000</td>
+                        <td>356404 km</td>
+                    </tr>
+                    <tr>
+                        <td>Highest Apogee</td>
+                        <td>2470-02-01 [Incomplete]</td>
+                        <td>[Incomplete]</td>
+                    </tr>
+                </table>
+            </div>
             <p class="text-gray-600 leading-relaxed text-justify mb-4">
                 Note: Data for the highest apogee in the 2425–2500 range is incomplete. Further calculations are needed.
             </p>
     
-            <!-- Bagian tambahan yang sebelumnya di content-card kedua -->
+            <!-- Bagian tambahan -->
             <h4 class="text-lg font-bold text-gray-700 mb-4">[Subjudul Bagian 2]</h4>
             <p class="text-gray-600 leading-relaxed text-justify mb-4">
                 [Masukkan teks untuk bagian kedua artikel. Bisa berisi analisis, diskusi, atau informasi tambahan.]
@@ -302,7 +406,6 @@
             <p class="text-gray-600 leading-relaxed text-justify mb-4">
                 [Lihat informasi lebih lanjut di <a href="[URL]" class="text-indigo-600 hover:underline">[sumber]</a>.]
             </p>
-    
             <!-- Contoh list -->
             <ul class="list-disc pl-6 mb-4 text-gray-600">
                 <li>[Poin 1]</li>
@@ -320,59 +423,6 @@
             </div>
             <!-- Contoh gambar (opsional) -->
             <img src="[path/to/image.png]" alt="[Deskripsi Gambar]" class="content-image">
-        </section>
-    </main>
-                <ul class="list-disc pl-6 mb-4 text-gray-600">
-                    <li>[Poin 1]</li>
-                    <li>[Poin 2]</li>
-                    <li>[Poin 3]</li>
-                </ul>
-                <!-- Contoh persamaan LaTeX -->
-                <p class="text-gray-600 leading-relaxed text-justify mb-4">
-                    [Jika ada persamaan, masukkan di bawah ini:]
-                </p>
-                <div class="mathjax-container">
-                    \[
-                    [Persamaan LaTeX, misalnya: E = mc^2]
-                    \]
-                </div>
-                <!-- Contoh gambar (opsional) -->
-                <img src="[path/to/image.png]" alt="[Deskripsi Gambar]" class="content-image">
-            </div>
-
-            <!-- Kartu kedua untuk bagian lain -->
-            <div class="content-card">
-                <h4 class="text-lg font-bold text-gray-700 mb-4">[Subjudul Bagian 2]</h4>
-                <p class="text-gray-600 leading-relaxed text-justify mb-4">
-                    [Masukkan teks untuk bagian kedua artikel. Bisa berisi analisis, diskusi, atau informasi tambahan.]
-                </p>
-                <!-- Contoh tabel -->
-                <table class="content-table">
-                    <thead>
-                        <tr>
-                            <th class="text-left">[Kolom 1]</th>
-                            <th class="text-left">[Kolom 2]</th>
-                            <th class="text-left">[Kolom 3]</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>[Data 1]</td>
-                            <td>[Data 2]</td>
-                            <td>[Data 3]</td>
-                        </tr>
-                        <tr>
-                            <td>[Data 4]</td>
-                            <td>[Data 5]</td>
-                            <td>[Data 6]</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!-- Contoh link eksternal -->
-                <p class="text-gray-600 leading-relaxed text-justify mb-4">
-                    [Lihat informasi lebih lanjut di <a href="[URL]" class="text-indigo-600 hover:underline">[sumber]</a>.]
-                </p>
-            </div>
         </section>
     </main>
 
