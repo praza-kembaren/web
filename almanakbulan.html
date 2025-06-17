@@ -12,11 +12,26 @@
     <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
     <style>
-        /* Override conflicting styles */
-        .navbar {
-            display: none; /* Sembunyikan navbar lama */
+        /* Hapus gaya content-card karena tidak digunakan */
+        .content-card {
+            /* Tidak lagi digunakan */
+        }
+
+        /* Update main dan section untuk full-width dengan margin */
+        main {
+            width: 100%;
+            padding: 2rem 0; /* Padding vertikal saja */
+            position: relative;
+            overflow: hidden;
+        }
+
+        section {
+            width: 100%;
+            margin: 0 1rem; /* Margin horizontal lebih kecil */
+            padding: 0;
+            position: relative;
+            z-index: 10;
         }
 
         /* Background statis untuk performa */
@@ -30,46 +45,17 @@
             z-index: 0;
         }
 
-            section {
-            width: 100%;
-            margin: 0 1.5rem; /* Margin horizontal untuk jarak dari tepi */
-            padding: 0; /* Tidak ada padding tambahan */
-            position: relative;
-            z-index: 10;
-        }
-
-        .content-card {
-    /* Tidak lagi digunakan, hapus semua properti terkait content-card */
-        }
-
-        /* Update main dan container untuk full-width */
-        main {
-            width: 100%;
-            padding: 2rem 0; /* Hanya padding vertikal */
-            position: relative;
-            overflow: hidden;
-        }
-
-        body.dark-mode .content-card {
-            background: #2d3748;
-            color: #e2e8f0;
-            border-color: #4a5568;
-        }
-
-        .content-card h2,
-        .content-card h4 {
-            color: #333;
-        }
-        
-        /* Gaya teks monospaced */
+        /* Gaya teks monospaced untuk tabel data */
         .mono-text {
             font-family: 'IBM Plex Mono', 'Courier New', monospace;
             font-size: 0.875rem;
-            white-space: pre;
             background: #f4f4f9;
             padding: 1rem;
             border-radius: 4px;
             overflow-x: auto;
+            margin: 1rem auto; /* Rata tengah tabel */
+            max-width: calc(100% - 2rem); /* Cegah tabel melebihi lebar layar */
+            display: inline-block; /* Agar tabel tidak melebar penuh */
         }
 
         body.dark-mode .mono-text {
@@ -77,9 +63,18 @@
             color: #e2e8f0;
         }
 
-        body.dark-mode .content-card h2,
-        body.dark-mode .content-card h4 {
-            color: #e2e8f0;
+        /* Penyesuaian tabel dalam mono-text */
+        .mono-text table {
+            width: auto;
+            border-collapse: separate;
+            border-spacing: 0;
+            text-align: center; /* Rata tengah hanya untuk tabel */
+        }
+
+        .mono-text th,
+        .mono-text td {
+            padding: 0.5rem 1.5rem; /* Spasi antar kolom */
+            white-space: nowrap; /* Cegah teks membungkus */
         }
 
         /* Gaya gambar */
@@ -93,13 +88,13 @@
 
         /* Gaya tabel */
         .content-table {
-            width: 100%;
+            width: 80%;
+            margin: 1rem auto; /* Rata tengah */
             border-collapse: collapse;
-            margin: 1rem 0;
             background: #fff;
             border-radius: 8px;
             overflow: hidden;
-            will-change: transform;
+            text-align: center; /* Rata tengah hanya untuk tabel */
         }
 
         body.dark-mode .content-table {
@@ -109,7 +104,6 @@
         .content-table th,
         .content-table td {
             padding: 0.75rem;
-            text-align: left;
             border-bottom: 1px solid #ddd;
         }
 
@@ -132,14 +126,14 @@
 
         /* Gaya persamaan LaTeX */
         .mathjax-container {
-            margin: 1rem 0;
+            margin: 1rem auto;
             text-align: center;
         }
 
         /* Responsive styles */
         @media (max-width: 768px) {
-            .content-card {
-                padding: 0 0.5rem;
+            section {
+                margin: 0 0.75rem; /* Margin lebih kecil */
             }
 
             .content-image {
@@ -147,36 +141,23 @@
             }
 
             .content-table {
+                width: 90%;
                 font-size: 0.875rem;
             }
 
-            .menu {
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: #2d3748;
-                padding: 1rem;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: transform 0.3s ease, opacity 0.3s ease;
+            .mono-text {
+                max-width: calc(100% - 1.5rem);
             }
 
-            .menu:not(.hidden) {
-                transform: translateY(0);
-                opacity: 1;
-            }
-
-            .menu ul {
-                flex-direction: column;
-                align-items: center;
+            .mono-text th,
+            .mono-text td {
+                padding: 0.5rem 1rem;
             }
         }
 
         @media (max-width: 480px) {
-            .content-card {
-                margin: 0 0.25rem;
+            section {
+                margin: 0 0.5rem;
             }
 
             .content-image {
@@ -184,12 +165,17 @@
             }
 
             .content-table {
+                width: 95%;
                 font-size: 0.75rem;
             }
 
-            .content-table th,
-            .content-table td {
-                padding: 0.5rem;
+            .mono-text {
+                max-width: calc(100% - 1rem);
+            }
+
+            .mono-text th,
+            .mono-text td {
+                padding: 0.5rem 0.5rem;
             }
         }
     </style>
@@ -221,13 +207,13 @@
             </div>
         </nav>
     </header>
-    
+
     <main class="w-full py-8 relative overflow-hidden">
         <!-- Background statis untuk performa -->
         <div class="bg-animation"></div>
         <section class="relative z-10">
             <!-- Judul artikel -->
-            <h2 class="text-2xl font-bold text-indigo-600 text-center mb-6">Seri Almanak: Bulan</h2>
+            <h2 class="text-2xl font-bold text-indigo-600 mb-6">Seri Almanak: Bulan</h2>
             <p class="text-gray-600 leading-relaxed text-justify mb-4">
                 Ketika membaca buku Mathematical Astronomy Morsels karya Jean Meeus terkait
                 fenomena-fenomena benda langit dan beberapa trivia astronomi lainnya, saya tertarik untuk
@@ -245,9 +231,9 @@
             <div class="mono-text">
                 <table>
                     <tr>
-                        <td>Event</td>
-                        <td>Time</td>
-                        <td>Distance</td>
+                        <th>Event</th>
+                        <th>Time</th>
+                        <th>Distance</th>
                     </tr>
                     <tr>
                         <td>Lowest Perigee</td>
@@ -261,15 +247,15 @@
                     </tr>
                 </table>
             </div>
-    
+
             <!-- 2025–2125 -->
             <h4 class="text-lg font-bold text-gray-700 mb-4">2025–2125</h4>
             <div class="mono-text">
                 <table>
                     <tr>
-                        <td>Event</td>
-                        <td>Time</td>
-                        <td>Distance</td>
+                        <th>Event</th>
+                        <th>Time</th>
+                        <th>Distance</th>
                     </tr>
                     <tr>
                         <td>Lowest Perigee</td>
@@ -283,15 +269,15 @@
                     </tr>
                 </table>
             </div>
-    
+
             <!-- 2125–2225 -->
             <h4 class="text-lg font-bold text-gray-700 mb-4">2125–2225</h4>
             <div class="mono-text">
                 <table>
                     <tr>
-                        <td>Event</td>
-                        <td>Time</td>
-                        <td>Distance</td>
+                        <th>Event</th>
+                        <th>Time</th>
+                        <th>Distance</th>
                     </tr>
                     <tr>
                         <td>Lowest Perigee</td>
@@ -305,15 +291,15 @@
                     </tr>
                 </table>
             </div>
-    
+
             <!-- 2225–2325 -->
             <h4 class="text-lg font-bold text-gray-700 mb-4">2225–2325</h4>
             <div class="mono-text">
                 <table>
                     <tr>
-                        <td>Event</td>
-                        <td>Time</td>
-                        <td>Distance</td>
+                        <th>Event</th>
+                        <th>Time</th>
+                        <th>Distance</th>
                     </tr>
                     <tr>
                         <td>Lowest Perigee</td>
@@ -327,15 +313,15 @@
                     </tr>
                 </table>
             </div>
-    
+
             <!-- 2325–2425 -->
             <h4 class="text-lg font-bold text-gray-700 mb-4">2325–2425</h4>
             <div class="mono-text">
                 <table>
                     <tr>
-                        <td>Event</td>
-                        <td>Time</td>
-                        <td>Distance</td>
+                        <th>Event</th>
+                        <th>Time</th>
+                        <th>Distance</th>
                     </tr>
                     <tr>
                         <td>Lowest Perigee</td>
@@ -347,17 +333,16 @@
                         <td>2406-12-11 05:39:14 +0000</td>
                         <td>406720 km</td>
                     </tr>
-                </table>
-            </div>
-    
+        </div>
+
             <!-- 2425–2500 -->
             <h4 class="text-lg font-bold text-gray-700 mb-4">2425–2500</h4>
             <div class="mono-text">
                 <table>
                     <tr>
-                        <td>Event</td>
-                        <td>Time</td>
-                        <td>Distance</td>
+                        <th>Event</th>
+                        <th>Time</th>
+                        <th>Distance</th>
                     </tr>
                     <tr>
                         <td>Lowest Perigee</td>
@@ -374,7 +359,7 @@
             <p class="text-gray-600 leading-relaxed text-justify mb-4">
                 Note: Data for the highest apogee in the 2425–2500 range is incomplete. Further calculations are needed.
             </p>
-    
+
             <!-- Bagian tambahan -->
             <h4 class="text-lg font-bold text-gray-700 mb-4">[Subjudul Bagian 2]</h4>
             <p class="text-gray-600 leading-relaxed text-justify mb-4">
@@ -384,9 +369,9 @@
             <table class="content-table">
                 <thead>
                     <tr>
-                        <th class="text-left">[Kolom 1]</th>
-                        <th class="text-left">[Kolom 2]</th>
-                        <th class="text-left">[Kolom 3]</th>
+                        <th>[Kolom 1]</th>
+                        <th>[Kolom 2]</th>
+                        <th>[Kolom 3]</th>
                     </tr>
                 </thead>
                 <tbody>
