@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Meteo Page - Altair's Personal Page</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white font-sans transition-colors duration-300" id="body">
+    <header class="bg-gray-800 text-white shadow-lg sticky top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo-container flex flex-col items-start">
+                    <a href="index.html" class="logo text-2xl">Altair's Personal Page</a>
+                    <div class="time-display text-sm mt-1" id="timeDisplay"></div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="focus:outline-none" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon text-xl"></i>
+                    </button>
+                    <button class="menu-toggle md:hidden focus:outline-none" aria-label="Toggle navigation" aria-expanded="false">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                <div class="menu hidden md:flex md:items-center md:gap-8" id="menu">
+                    <ul class="flex flex-col md:flex-row gap-6">
+                        <li><a href="index.html" class="hover:text-indigo-300 transition menu-item">Home</a></li>
+                        <li><a href="astronomy.html" class="hover:text-indigo-300 transition menu-item">Astronomi</a></li>
+                        <li><a href="meteorologi.html" class="hover:text-indigo-300 transition menu-item">Meteorologi</a></li>
+                        <li><a href="random.html" class="hover:text-indigo-300 transition menu-item">Random</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 relative overflow-hidden">
+        <div class="bg-animation"></div>
+        <section id="astronomy" class="text-center relative z-10">
+            <h2 class="text-3xl font-bold text-indigo-600 mb-4">Meteorologi</h2>
+            <p class="section-description text-gray-600 leading-relaxed text-justify mx-auto max-w-3xl mb-8">
+                Halaman ini berisi artikel, penelitian, dan beberapa hal terkait meteorologi, seperti hasil simulasi atau pemodelan parameter atmosfer menggunakan openGrADS,
+                jurnal awan dan lainnya.
+            </p>
+            <div class="post-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="post-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <img src="lewotobi.jpg" alt="lewotobi" class="post-image w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800"><a href="almanakbulan.html" class="hover:text-indigo-500 transition">Citra Sebaran Abu Vulkanik Gunung Lewotobi Lakilaki</a></h3>
+                        <p class="post-description text-gray-600 mt-2">Gunung Lewotobi Lakilaki meletus pada 17 Juni 2025, tinggi kolom abu mencapai > 10.000 meter...</p>
+                        <a href="lewotobi.html" class="text-indigo-600 hover:text-indigo-800 font-medium mt-3 inline-block">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 transition-all duration-300">
+        <div class="container mx-auto px-4 text-center">
+            <div class="footer-content">
+                <div class="social-links flex justify-center gap-4 flex-wrap">
+                    <a href="https://www.linkedin.com/in/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+                    </a>
+                    <a href="https://facebook.com/praza.kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-facebook"></i><span>Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/prazakembaren/" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-instagram"></i><span>Instagram</span>
+                    </a>
+                    <a href="https://github.com/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-github"></i><span>GitHub</span>
+                    </a>
+                </div>
+                <p>© 2025 Praza Kembaren. Ad Astra Per Aspera.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update time display
+        function updateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const date = now.toLocaleDateString('id', options);
+            const time = now.toLocaleTimeString('en-US', { hour12: false });
+            document.getElementById('timeDisplay').textContent = `${date}, ${time} WIB (UTC+7)`;
+        }
+
+        // Toggle mobile menu with slide-in animation
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('slide-in');
+            const isExpanded = !menu.classList.contains('hidden');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Dark mode toggle
+        const themeToggle = document.querySelector('#themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            themeToggle.querySelector('i').classList.toggle('fa-moon', !isDark);
+            themeToggle.querySelector('i').classList.toggle('fa-sun', isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // Initialize and update time every second
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
