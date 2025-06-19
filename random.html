@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Number Clock</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .clock {
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+        .hand {
+            position: absolute;
+            top: 50%; /* Mulai dari titik tengah */
+            left: 50%;
+            transform-origin: center bottom; /* Rotasi dari ujung bawah (titik tengah) */
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* Angka dari tengah ke luar */
+            align-items: center;
+            justify-content: flex-start; /* Mulai dari atas jarum */
+        }
+        .hour-hand {
+            width: 60px;
+            height: 80px; /* Panjang jarum */
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+        }
+        .minute-hand {
+            width: 60px;
+            height: 100px;
+            font-size: 14px;
+            color: #555;
+        }
+        .second-hand {
+            width: 60px;
+            height: 120px;
+            font-size: 12px;
+            color: #ff0000;
+        }
+        .center {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #333;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        .number {
+            white-space: nowrap; /* Angka dua digit sejajar */
+            line-height: 1; /* Jarak antar angka dikurangi */
+            position: relative;
+            top: 0; /* Pastikan angka mulai dari titik pusat */
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="hand hour-hand" id="hourHand"></div>
+        <div class="hand minute-hand" id="minuteHand"></div>
+        <div class="hand second-hand" id="secondHand"></div>
+        <div class="center"></div>
+    </div>
+    <script>
+        function setClock() {
+            const now = new Date();
+            const seconds = now.getSeconds();
+            const minutes = now.getMinutes();
+            const hours = now.getHours() % 12 || 12; // Format 12 jam
+
+            // Hitung derajat rotasi (searah jarum jam)
+            const secondsDegrees = (seconds / 60) * 360;
+            const minutesDegrees = (minutes / 60) * 360 + (seconds / 60) * 6;
+            const hoursDegrees = (hours / 12) * 360 + (minutes / 60) * 30;
+
+            // Update rotasi jarum
+            document.querySelector('.second-hand').style.transform = `translateX(-50%) rotate(${secondsDegrees}deg)`;
+            document.querySelector('.minute-hand').style.transform = `translateX(-50%) rotate(${minutesDegrees}deg)`;
+            document.querySelector('.hour-hand').style.transform = `translateX(-50%) rotate(${hoursDegrees}deg)`;
+
+            // Buat teks angka untuk jarum
+            const hourText = Array(5).fill(hours).map(num => `<div class="number">${num}</div>`).join('');
+            const minuteText = Array(5).fill(minutes).map(num => `<div class="number">${num.toString().padStart(2, '0')}</div>`).join('');
+            const secondText = Array(5).fill(seconds).map(num => `<div class="number">${num.toString().padStart(2, '0')}</div>`).join('');
+
+            // Update teks jarum
+            document.getElementById('hourHand').innerHTML = hourText;
+            document.getElementById('minuteHand').innerHTML = minuteText;
+            document.getElementById('secondHand').innerHTML = secondText;
+        }
+
+        setClock();
+        setInterval(setClock, 1000);
+    </script>
+</body>
+</html>
