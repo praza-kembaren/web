@@ -101,7 +101,7 @@ img {
 }
 
 img:hover {
-    transform: scale(1.05) rotate(3deg);
+    transform: scale(1.05);
 }
 
 .time-display, .julian-date {
