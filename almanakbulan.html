@@ -57,9 +57,15 @@
             padding: 1rem;
             border-radius: 4px;
             overflow-x: auto;
-            margin: 1.5rem auto; /* Rata tengah tabel */
+            margin: 0 auto; /* Rata tengah tabel */
             max-width: calc(100% - 2rem); /* Cegah tabel melebihi lebar layar */
-            display: inline-block; /* Agar tabel tidak melebar penuh */
+            display: block; /* Ganti inline-block dengan block */
+            width: fit-content; /* Lebar menyesuaikan konten */
+        }
+
+        .mono-text h5 {
+            text-align: center; /* Memusatkan subjudul */
+            width: 100%; /* Pastikan subjudul mengikuti lebar */
         }
 
         /* Pastikan paragraf dan list tidak meluap */
