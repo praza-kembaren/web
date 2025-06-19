@@ -13,7 +13,7 @@ body.dark-mode {
     background-color: #1a202c;
     color: #e2e8f0;
     width: 100vw; /* Ensure full viewport width */
-    margin: 0; /* Remove any default margins */
+    /*margin: 0;  Remove any default margins */
     overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
