@@ -53,6 +53,16 @@
         body.dark-mode .content-card h4 {
             color: #e2e8f0;
         }
+        video {
+            display: block;
+            margin: 1.5rem auto; /* Pusatkan video */
+            max-width: 70%; /* Sesuai dengan .content-image */
+            width: 100%; /* Responsif */
+            height: auto; /* Pertahankan rasio aspek */
+        }
+        body.dark-mode video {
+            border: 1px solid #4a5568; /* Tambah batas untuk visibilitas di dark mode */
+        }
 
         .content-image {
             display: block;
