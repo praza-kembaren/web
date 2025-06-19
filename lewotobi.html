@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citra Sebaran Abu Vulkanik Gunung Lewotobi</title>
+    <!-- Tailwind CSS CDN untuk konsistensi dengan index.html -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN untuk ikon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Override conflicting styles */
+        .navbar {
+            display: none; /* Sembunyikan navbar lama yang tidak digunakan */
+        }
+
+        /* Background animation konsisten dengan index.html */
+        .bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(79, 70, 229, 0.1), rgba(147, 197, 253, 0.1));
+            animation: gradientShift 10s ease infinite;
+            z-index: 0;
+        }
+
+        /* Konten utama */
+        .content-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-mode .content-card {
+            background: #2d3748;
+            color: #e2e8f0;
+            border-color: #4a5568;
+        }
+
+        .content-card h2,
+        .content-card h4 {
+            color: #333;
+        }
+
+        body.dark-mode .content-card h2,
+        body.dark-mode .content-card h4 {
+            color: #e2e8f0;
+        }
+
+        .content-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 70%;
+            height: auto;
+            border-radius: 8px;
+            /* Tanpa efek rotasi, hover, atau transform */
+        }
+
+        /* Responsive styles untuk menu */
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 1rem;
+            }
+
+            .content-image {
+                max-width: 90%;
+            }
+
+            .menu {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: #2d3748;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+
+            .menu:not(.hidden) {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-card {
+                margin: 1rem;
+            }
+
+            .content-image {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white font-sans transition-colors duration-300" id="body">
+    <header class="bg-gray-800 text-white shadow-lg sticky top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo-container flex flex-col items-start">
+                    <a href="index.html" class="logo text-2xl hover:text-indigo-300 transition">Altair's Personal Page</a>
+                    <div class="time-display text-sm mt-1" id="timeDisplay"></div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="focus:outline-none" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon text-xl"></i>
+                    </button>
+                    <button class="menu-toggle md:hidden focus:outline-none" aria-label="Toggle navigation" aria-expanded="false">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                <div class="menu hidden md:flex md:items-center md:gap-8" id="menu">
+                    <ul class="flex flex-col md:flex-row gap-6">
+                        <li><a href="index.html" class="hover:text-indigo-300 transition menu-item">Home</a></li>
+                        <li><a href="astronomy.html" class="hover:text-indigo-300 transition menu-item">Astronomi</a></li>
+                        <li><a href="meteorologi.html" class="hover:text-indigo-300 transition menu-item">Meteorologi</a></li>
+                        <li><a href="random.html" class="hover:text-indigo-300 transition menu-item">Random</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 relative overflow-hidden">
+        <div class="bg-animation"></div>
+        <section class="relative z-10">
+            <h2 class="text-2xl font-bold text-indigo-600 text-center mb-6">Citra Sebaran Abu Vulkanik Gunung Lewotobi</h2>
+            <div class="content-card">
+                <p class="text-gray-600 leading-relaxed text-justify mb-6">
+                    Berdasarkan informasi dari Pusat Vulkanologi dan Mitigasi Bencana Geologi (PVMBG),
+                    Selasa, 17 Juni 2025 pukul 17:35 WITA, Gunung Api Lewotobi Laki-Laki mengalami erupsi
+                    dengan tinggi kolom abu mencapai sekitar 10.000 meter dari puncak. Pada saat tersebut,
+                    terjadi gemuruh dan kilat serta dilaporkan terjadi hujan kerikil di radius 6-7 km dari 
+                    puncak.
+                </p>
+                <p class="text-gray-600 leading-relaxed text-justify mb-6">
+                    Erupsi Gunung Lewotobi Laki-Laki terdeteksi dalam citra satelit Himawari milik
+                    Japan Meteorological Agency (JMA, BMKG-nya Jepang). <a href="https://www.data.jma.go.jp/mscweb/data/himawari/" class="text-indigo-600 hover:underline">[Dalam web ini]</a>, disediakan
+                    citra satelit untuk beberapa fokus area yang berbeda mulai dari skala Asia-Pasifik 
+                    hingga beberapa daerah dengan cakupan yang lebih kecil seperti Indonesia hingga
+                    negara-negara Oseania. 
+                </p>
+                   <video width="600" height="500" controls>
+                      <source src="himawari_animation (5).mp4" type="video/mp4">
+                    </video>
+        
+                <p class="text-gray-600 leading-relaxed text-justify mb-6">
+                    Terlihat abu vulkanik gunung Lewotobi Laki-Laki tersebar ke daerah Barat (Barat Laut - Barat Daya) hingga selatan.
+                    Sebaran abu vulkanik seperti ini biasanya akan sangat berdampak pada lalu lintas penerbangan (dalam 
+                    beberapa berita nasional, Bandar Udara Ngurah Rai membatalkan beberapa penerbangan, dan tiga bandara di NTT 
+                    ditutup sementara).
+                    
+                </p>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 transition-all duration-300">
+        <div class="container mx-auto px-4 text-center">
+            <div class="footer-content">
+                <div class="social-links flex justify-center gap-4 flex-wrap">
+                    <a href="https://www.linkedin.com/in/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+                    </a>
+                    <a href="https://facebook.com/praza.kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-facebook"></i><span>Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/prazakembaren/" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-instagram"></i><span>Instagram</span>
+                    </a>
+                    <a href="https://github.com/praza-kembaren" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110 flex items-center gap-2">
+                        <i class="fab fa-github"></i><span>GitHub</span>
+                    </a>
+                </div>
+                <p>© 2025 Praza Kembaren. Ad Astra Per Aspera.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu with slide-in animation
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('slide-in');
+            const isExpanded = !menu.classList.contains('hidden');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Dark mode toggle
+        const themeToggle = document.querySelector('#themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            themeToggle.querySelector('i').classList.toggle('fa-moon', !isDark);
+            themeToggle.querySelector('i').classList.toggle('fa-sun', isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // Update time display
+        function updateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const date = now.toLocaleDateString('id', options);
+            const time = now.toLocaleTimeString('en-US', { hour12: false });
+            document.getElementById('timeDisplay').textContent = `${date}, ${time} WIB (UTC+7)`;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
