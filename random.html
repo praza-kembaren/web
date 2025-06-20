@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>rrrrraaaaannnnnnddddoooommmmm</title>
+    <title>rraannddoomm</title>
     <!-- Tailwind CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Font Awesome CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <!-- Custom CSS -->
     <style>
-        body {
+        html, body {
             margin: 0;
             font-family: Arial, sans-serif;
             transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            flex: 1;
         }
 
         .dark-mode {
@@ -121,6 +127,10 @@
                 opacity: 1;
             }
         }
+
+        footer {
+            margin-top: auto;
+        }
     </style>
 </head>
 <body class="bg-white font-sans transition-colors duration-300" id="body">
@@ -151,7 +161,7 @@
         </nav>
     </header>
 
-    <main class="container mx-auto px-4 py-8 relative overflow-hidden">
+    <main class="container mx-auto px-4 py-8 relative overflow-hidden" style="padding-bottom: 100px;">
         <div class="bg-animation"></div>
         <div class="clock">
             <div class="hand hour-hand" id="hourHand"></div>
@@ -195,11 +205,11 @@
             const minutesDeg = (minutes / 60) * 360 + (seconds / 60) * 6;
             const hoursDeg = (hours / 12) * 360 + (minutes / 60) * 30;
 
-            const secondText = Array(12).fill(seconds.toString().padStart(2, '0'))
+            const secondText = Array(8).fill(seconds.toString().padStart(2, '0'))
                 .map(n => `<div class="number">${n}</div>`).join('');
-            const minuteText = Array(7).fill(minutes.toString().padStart(2, '0'))
+            const minuteText = Array(6).fill(minutes.toString().padStart(2, '0'))
                 .map(n => `<div class="number">${n}</div>`).join('');
-            const hourText = Array(5).fill(hours.toString())
+            const hourText = Array(4).fill(hours.toString())
                 .map(n => `<div class="number">${n}</div>`).join('');
 
             const hourHand = document.getElementById("hourHand");
