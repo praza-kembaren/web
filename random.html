@@ -1,110 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Number Clock</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-        }
-        .clock {
-            width: 300px;
-            height: 300px;
-            position: relative;
-        }
-        .hand {
-            position: absolute;
-            top: 50%; /* Mulai dari titik tengah */
-            left: 50%;
-            transform-origin: center bottom; /* Rotasi dari ujung bawah (titik tengah) */
-            text-align: center;
-            display: flex;
-            flex-direction: column; /* Angka dari tengah ke luar */
-            align-items: center;
-            justify-content: flex-start; /* Mulai dari atas jarum */
-        }
-        .hour-hand {
-            width: 60px;
-            height: 80px; /* Panjang jarum */
-            font-size: 16px;
-            color: #333;
-            font-weight: bold;
-        }
-        .minute-hand {
-            width: 60px;
-            height: 100px;
-            font-size: 14px;
-            color: #555;
-        }
-        .second-hand {
-            width: 60px;
-            height: 120px;
-            font-size: 12px;
-            color: #ff0000;
-        }
-        .center {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: #333;
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-        }
-        .number {
-            white-space: nowrap; /* Angka dua digit sejajar */
-            line-height: 1; /* Jarak antar angka dikurangi */
-            position: relative;
-            top: 0; /* Pastikan angka mulai dari titik pusat */
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clock with Number Hands</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .clock {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      border-radius: 50%;
+    }
+
+    .hand {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: center center;
+      transform: translate(-50%, -50%);
+    }
+
+    .number-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: translateY(-65%); /* Agar muncul dari pusat ke luar */
+    }
+
+    .hour-hand .number {
+      font-size: 16px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .minute-hand .number {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .second-hand .number {
+      font-size: 12px;
+      color: #ff0000;
+    }
+
+    .number {
+      line-height: 1;
+      margin: 1px 0;
+    }
+
+    .center {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #333;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+  </style>
 </head>
 <body>
-    <div class="clock">
-        <div class="hand hour-hand" id="hourHand"></div>
-        <div class="hand minute-hand" id="minuteHand"></div>
-        <div class="hand second-hand" id="secondHand"></div>
-        <div class="center"></div>
-    </div>
-    <script>
-        function setClock() {
-            const now = new Date();
-            const seconds = now.getSeconds();
-            const minutes = now.getMinutes();
-            const hours = now.getHours() % 12 || 12; // Format 12 jam
+  <div class="clock">
+    <div class="hand hour-hand" id="hourHand"></div>
+    <div class="hand minute-hand" id="minuteHand"></div>
+    <div class="hand second-hand" id="secondHand"></div>
+    <div class="center"></div>
+  </div>
 
-            // Hitung derajat rotasi (searah jarum jam)
-            const secondsDegrees = (seconds / 60) * 360;
-            const minutesDegrees = (minutes / 60) * 360 + (seconds / 60) * 6;
-            const hoursDegrees = (hours / 12) * 360 + (minutes / 60) * 30;
+  <script>
+    function setClock() {
+      const now = new Date();
+      const seconds = now.getSeconds();
+      const minutes = now.getMinutes();
+      const hours = now.getHours() % 12 || 12;
 
-            // Update rotasi jarum
-            document.querySelector('.second-hand').style.transform = `translateX(-50%) rotate(${secondsDegrees}deg)`;
-            document.querySelector('.minute-hand').style.transform = `translateX(-50%) rotate(${minutesDegrees}deg)`;
-            document.querySelector('.hour-hand').style.transform = `translateX(-50%) rotate(${hoursDegrees}deg)`;
+      const secondsDeg = (seconds / 60) * 360;
+      const minutesDeg = (minutes / 60) * 360 + (seconds / 60) * 6;
+      const hoursDeg = (hours / 12) * 360 + (minutes / 60) * 30;
 
-            // Buat teks angka untuk jarum
-            const hourText = Array(5).fill(hours).map(num => `<div class="number">${num}</div>`).join('');
-            const minuteText = Array(5).fill(minutes).map(num => `<div class="number">${num.toString().padStart(2, '0')}</div>`).join('');
-            const secondText = Array(5).fill(seconds).map(num => `<div class="number">${num.toString().padStart(2, '0')}</div>`).join('');
+      const secondText = Array(12).fill(seconds.toString().padStart(2, '0'))
+        .map(n => `<div class="number">${n}</div>`).join('');
+      const minuteText = Array(7).fill(minutes.toString().padStart(2, '0'))
+        .map(n => `<div class="number">${n}</div>`).join('');
+      const hourText = Array(5).fill(hours.toString())
+        .map(n => `<div class="number">${n}</div>`).join('');
 
-            // Update teks jarum
-            document.getElementById('hourHand').innerHTML = hourText;
-            document.getElementById('minuteHand').innerHTML = minuteText;
-            document.getElementById('secondHand').innerHTML = secondText;
-        }
+      const hourHand = document.getElementById("hourHand");
+      const minuteHand = document.getElementById("minuteHand");
+      const secondHand = document.getElementById("secondHand");
 
-        setClock();
-        setInterval(setClock, 1000);
-    </script>
+      hourHand.innerHTML = `<div class="number-stack">${hourText}</div>`;
+      minuteHand.innerHTML = `<div class="number-stack">${minuteText}</div>`;
+      secondHand.innerHTML = `<div class="number-stack">${secondText}</div>`;
+
+      hourHand.style.transform = `translate(-50%, -50%) rotate(${hoursDeg}deg)`;
+      minuteHand.style.transform = `translate(-50%, -50%) rotate(${minutesDeg}deg)`;
+      secondHand.style.transform = `translate(-50%, -50%) rotate(${secondsDeg}deg)`;
+    }
+
+    setClock();
+    setInterval(setClock, 1000);
+  </script>
 </body>
 </html>
