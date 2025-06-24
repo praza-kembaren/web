@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Citra Sebaran Abu Vulkanik Gunung Lewotobi</title>
+    <title>Gempa Bumi di Kutub</title>
     <!-- Tailwind CSS CDN untuk konsistensi dengan index.html -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Font Awesome CDN untuk ikon -->
@@ -146,25 +146,22 @@
         </nav>
     </header>
 
-    <body class="bg-gradient-to-br from-gray-100 to-white dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 min-h-screen flex items-center justify-center px-6 py-10">
+    <main class="container mx-auto px-4 py-10 relative overflow-hidden">
+      <div class="bg-animation"></div>
+      <section class="relative z-10">
+        <h2 class="text-4xl font-extrabold text-indigo-600 text-center mb-10">Statistik Gempa Bumi di Kutub Utara & Selatan</h2>
     
-      <div class="max-w-7xl w-full space-y-12">
-        <h1 class="text-4xl font-extrabold text-indigo-600 text-center mb-10">Statistik Gempa Kutub Utara & Selatan</h1>
-    
-        <!-- Wrapper Horizontal -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <!-- Kutub Utara -->
           <div class="space-y-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
             <h2 class="text-2xl font-bold text-indigo-500 mb-2 text-center">Kutub Utara</h2>
     
-            <!-- Total Gempa -->
             <div>
               <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300 text-center">Total Gempa</h3>
               <p class="text-4xl font-bold text-indigo-700 dark:text-indigo-400 text-center">12.034</p>
               <p class="text-sm text-gray-500 text-center mt-1">Gempa tercatat</p>
             </div>
     
-            <!-- Gempa Terkuat -->
             <div>
               <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300 text-center">Magnitudo Terkuat</h3>
               <p class="text-4xl font-bold text-red-600 dark:text-red-400 text-center">9.2</p>
@@ -172,7 +169,6 @@
               <p class="text-sm text-gray-500 text-center">(60.908°N, -147.339°E)</p>
             </div>
     
-            <!-- Terdekat Kutub -->
             <div>
               <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300 text-center">Paling Dekat Kutub</h3>
               <p class="text-3xl font-bold text-blue-600 dark:text-blue-400 text-center">85.057°N</p>
@@ -185,14 +181,12 @@
           <div class="space-y-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
             <h2 class="text-2xl font-bold text-indigo-500 mb-2 text-center">Kutub Selatan</h2>
     
-            <!-- Total Gempa -->
             <div>
               <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300 text-center">Total Gempa</h3>
               <p class="text-4xl font-bold text-indigo-700 dark:text-indigo-400 text-center">3.186</p>
               <p class="text-sm text-gray-500 text-center mt-1">Gempa tercatat</p>
             </div>
     
-            <!-- Gempa Terkuat -->
             <div>
               <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300 text-center">Magnitudo Terkuat</h3>
               <p class="text-4xl font-bold text-red-600 dark:text-red-400 text-center">8.1</p>
@@ -200,7 +194,6 @@
               <p class="text-sm text-gray-500 text-center">(-62.877°S, 149.527°E)</p>
             </div>
     
-            <!-- Terdekat Kutub -->
             <div>
               <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300 text-center">Paling Dekat Kutub</h3>
               <p class="text-3xl font-bold text-blue-600 dark:text-blue-400 text-center">84.422°S</p>
@@ -209,9 +202,9 @@
             </div>
           </div>
         </div>
-      </div>
-    
-    </body>
+      </section>
+    </main>
+
 
     <footer class="bg-gray-800 text-white py-6 transition-all duration-300">
         <div class="container mx-auto px-4 text-center">
