@@ -1,0 +1,40 @@
+=== Jumlah Gempa Berdasarkan Magnitudo ===
+Mag < 5.5: 11564 gempa
+5.5 ≤ Mag ≤ 7.5: 467 gempa
+Mag > 7.5: 3 gempa
+
+=== Jumlah Gempa Berdasarkan Kedalaman ===
+Dangkal (0–70 km): 10459 gempa
+Menengah (70–300 km): 1524 gempa
+Dalam (300–700 km): 0 gempa
+
+=== Jumlah Gempa Berdasarkan Tahun ===
+1900–1975: 642 gempa
+1976–2000: 4183 gempa
+2001–2025: 7209 gempa
+
+Data berhasil dimuat. Jumlah baris: 12034
+Magnitudo terkuat: 9.2 pada 1964-03-28 03:36:16+00:00 di (60.908, -147.339, lokasi The 1964 Prince William Sound, Alaska Earthquake)
+Gempa paling dekat dengan Kutub: 85.057°N, 98.445°E, Magnitudo: 4.1 pada 2005-05-04 01:38:48.920000+00:00 lokasi north of Severnaya Zemlya
+
+
+
+
+=== Jumlah Gempa Berdasarkan Magnitudo ===
+Mag < 5.5: 2768 gempa
+5.5 ≤ Mag ≤ 7.5: 415 gempa
+Mag > 7.5: 3 gempa
+
+=== Jumlah Gempa Berdasarkan Kedalaman ===
+Dangkal (0–70 km): 3156 gempa
+Menengah (70–300 km): 30 gempa
+Dalam (300–700 km): 0 gempa
+
+=== Jumlah Gempa Berdasarkan Tahun ===
+1900–1975: 112 gempa
+1976–2000: 567 gempa
+2001–2025: 2507 gempa
+
+Data berhasil dimuat. Jumlah baris: 3186
+Magnitudo terkuat: 8.1 pada 1998-03-25 03:12:25.070000+00:00 di (-62.877, 149.527, lokasi Balleny Islands region)
+Gempa paling dekat dengan Kutub: -84.422°N, 41.477°E, Magnitudo: 4.4 pada 2012-08-21 09:26:02.310000+00:00 lokasi Antarctica
